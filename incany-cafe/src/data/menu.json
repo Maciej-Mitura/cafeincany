@@ -1,0 +1,142 @@
+{
+  "categories": [
+    "Alles",
+    "Van 't Vat",
+    "Speciaalbieren",
+    "Gedistilleerd",
+    "Hapjes"
+  ],
+  "items": [
+    {
+      "name": "Jupiler",
+      "description": "Het klassiekekelderverseBelgischepils",
+      "price": "€2.80",
+      "category": "Van 't Vat",
+      "dietary": ["25cl"]
+    },
+    {
+      "name": "Duvel",
+      "description": "Stevig blond bier met rijke smaak",
+      "price": "€4.50",
+      "category": "Van 't Vat",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Stella Artois",
+      "description": "Premium pils, perfect getapt",
+      "price": "€3.20",
+      "category": "Van 't Vat",
+      "dietary": ["25cl"]
+    },
+    {
+      "name": "Grimbergen Blond",
+      "description": "Vol en fruitig abdijbier",
+      "price": "€4.20",
+      "category": "Van 't Vat",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Leffe Bruin",
+      "description": "Donker abdijbier met karameltoetsen",
+      "price": "€4.20",
+      "category": "Van 't Vat",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Westmalle Tripel",
+      "description": "Trappistenbier met complexe smaak",
+      "price": "€5.20",
+      "category": "Speciaalbieren",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Rochefort 8",
+      "description": "Zwaar en kruidig trappistenbier",
+      "price": "€5.80",
+      "category": "Speciaalbieren",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Karmeliet Tripel",
+      "description": "Complex tripel volgens eeuwenoude receptuur",
+      "price": "€5.00",
+      "category": "Speciaalbieren",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "La Chouffe",
+      "description": "Fruitig blond uit de Ardennen",
+      "price": "€4.80",
+      "category": "Speciaalbieren",
+      "dietary": ["33cl"]
+    },
+    {
+      "name": "Whisky Selection",
+      "description": "Jameson, Jack Daniels, of onze huisselectie",
+      "price": "€6.50",
+      "category": "Gedistilleerd",
+      "dietary": ["4cl"]
+    },
+    {
+      "name": "Rum (Bacardi/Havana Club)",
+      "description": "Witte of bruine rum",
+      "price": "€5.50",
+      "category": "Gedistilleerd",
+      "dietary": ["4cl"]
+    },
+    {
+      "name": "Gin & Tonic",
+      "description": "Premium gin met Fever-Tree tonic",
+      "price": "€8.50",
+      "category": "Gedistilleerd",
+      "dietary": ["Served"]
+    },
+    {
+      "name": "Jenever",
+      "description": "Oude of jonge jenever",
+      "price": "€4.50",
+      "category": "Gedistilleerd",
+      "dietary": ["4cl"]
+    },
+    {
+      "name": "Elixir d'Anvers",
+      "description": "Belgische kruidenbitter",
+      "price": "€4.00",
+      "category": "Gedistilleerd",
+      "dietary": ["4cl"]
+    },
+    {
+      "name": "Bitterballen (8st)",
+      "description": "Krokante bitterballen met mosterd",
+      "price": "€7.50",
+      "category": "Hapjes",
+      "dietary": ["Huisgemaakt"]
+    },
+    {
+      "name": "Kaasplankje",
+      "description": "Belgische kazen met noten en confituur",
+      "price": "€12.50",
+      "category": "Hapjes",
+      "dietary": ["Vegetarisch"]
+    },
+    {
+      "name": "Charcuterie",
+      "description": "Vleeswaren met pickles en mosterd",
+      "price": "€14.00",
+      "category": "Hapjes"
+    },
+    {
+      "name": "Kroketten (4st)",
+      "description": "Vlees- of garnaalkroketten",
+      "price": "€8.50",
+      "category": "Hapjes"
+    },
+    {
+      "name": "Borrelnootjes",
+      "description": "Geroosterde nootjes",
+      "price": "€3.50",
+      "category": "Hapjes",
+      "dietary": ["Vegan"]
+    }
+  ]
+}

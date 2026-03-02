@@ -1,0 +1,69 @@
+{
+  "upcoming": [
+    {
+      "id": 1,
+      "title": "DJ Marc Draait de Classics",
+      "date": "2026-03-15",
+      "time": "21:00",
+      "description": "DJ Marc brengt de beste hits van de jaren '80 en '90. Kom dansen en meezingen!",
+      "tag": "DJ Night",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Trivia Quiz Avond",
+      "date": "2026-03-20",
+      "time": "20:00",
+      "description": "Test je kennis in onze maandelijkse quiz. Leuke prijzen te winnen!",
+      "tag": "Theme Night",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Happy Hour Weekend",
+      "date": "2026-03-22",
+      "time": "17:00",
+      "description": "Heel het weekend: 2de pintje gratis van 17u tot 19u!",
+      "tag": "Discount",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Live Muziek: De Kroegentijgers",
+      "date": "2026-03-28",
+      "time": "20:30",
+      "description": "Lokale coverband brengt sfeervolle live muziek. Gratis entree!",
+      "tag": "Theme Night",
+      "featured": false
+    }
+  ],
+  "past": [
+    {
+      "id": 5,
+      "title": "Carnaval Fuif",
+      "date": "2026-02-15",
+      "time": "21:00",
+      "description": "Onvergetelijke carnavalsavond met DJ en verkleedpartij.",
+      "tag": "Theme Night",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Valentijn Special",
+      "date": "2026-02-14",
+      "time": "19:00",
+      "description": "Romantische avond met speciale cocktails en live piano.",
+      "tag": "Theme Night",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Nieuwjaarsborrel",
+      "date": "2026-01-06",
+      "time": "18:00",
+      "description": "Proost op het nieuwe jaar met gratis bitterballen.",
+      "tag": "Discount",
+      "featured": false
+    }
+  ]
+}
