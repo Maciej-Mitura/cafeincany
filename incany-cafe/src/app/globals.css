@@ -257,3 +257,11 @@ a:hover {
   animation: fade-in 0.4s ease-out forwards;
   opacity: 0;
 }
+
+/* Hide Next.js development indicator */
+#nextjs__container,
+#__next-build-watcher,
+[id^="__next"],
+nextjs-portal {
+  display: none !important;
+}
