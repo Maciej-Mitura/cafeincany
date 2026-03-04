@@ -5,6 +5,7 @@ import { cafeInfo, getTodayHours } from '@/data/cafe';
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
+import ComingSoonModal from '@/components/ui/ComingSoonModal';
 
 export default function Location() {
   const [hoveredDay, setHoveredDay] = useState<string | null>(null);
@@ -56,7 +57,7 @@ export default function Location() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">
-                    Address
+                    Adres
                   </h3>
                   <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
                     {cafeInfo.address.street}<br />
@@ -83,67 +84,74 @@ export default function Location() {
             </div>
 
             {/* Opening Hours Table */}
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: 'var(--shadow)' }}>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
-                  <svg
-                    className="w-6 h-6 text-[var(--accent)]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">
-                    Opening Hours
-                  </h3>
-                  {todayHours && (
-                    <p className="text-sm text-[var(--accent)] font-medium">
-                      Today: {todayHours.hours}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                {cafeInfo.hours.map((schedule) => {
-                  const isToday = todayHours?.day === schedule.day;
-                  return (
-                    <div
-                      key={schedule.day}
-                      onMouseEnter={() => setHoveredDay(schedule.day)}
-                      onMouseLeave={() => setHoveredDay(null)}
-                      className={`flex justify-between items-center py-3 px-4 rounded-[var(--radius-sm)] transition-all duration-200 ${
-                        isToday
-                          ? 'bg-[var(--accent)]/10 border border-[var(--accent-muted)]'
-                          : hoveredDay === schedule.day
-                          ? 'bg-[var(--surface-elevated)]'
-                          : ''
-                      }`}
+            <ComingSoonModal
+              active={true}
+              title="Openingsuren worden bijgewerkt"
+              subtitle="De tabel met openingsuren is binnenkort beschikbaar."
+              aria-label="Opening hours coming soon"
+            >
+              <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: 'var(--shadow)' }}>
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
+                    <svg
+                      className="w-6 h-6 text-[var(--accent)]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      <span className={`font-medium ${isToday ? 'text-[var(--accent)]' : 'text-[var(--text)]'}`}>
-                        {schedule.day}
-                        {isToday && (
-                          <span className="ml-2 text-xs bg-[var(--accent)] text-[var(--background)] px-2 py-0.5 rounded-full">
-                            Today
-                          </span>
-                        )}
-                      </span>
-                      <span className={isToday ? 'text-[var(--text)] font-medium' : 'text-[var(--text-secondary)]'}>
-                        {schedule.hours}
-                      </span>
-                    </div>
-                  );
-                })}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">
+                      Opening Hours
+                    </h3>
+                    {todayHours && (
+                      <p className="text-sm text-[var(--accent)] font-medium">
+                        Today: {todayHours.hours}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {cafeInfo.hours.map((schedule) => {
+                    const isToday = todayHours?.day === schedule.day;
+                    return (
+                      <div
+                        key={schedule.day}
+                        onMouseEnter={() => setHoveredDay(schedule.day)}
+                        onMouseLeave={() => setHoveredDay(null)}
+                        className={`flex justify-between items-center py-3 px-4 rounded-[var(--radius-sm)] transition-all duration-200 ${
+                          isToday
+                            ? 'bg-[var(--accent)]/10 border border-[var(--accent-muted)]'
+                            : hoveredDay === schedule.day
+                            ? 'bg-[var(--surface-elevated)]'
+                            : ''
+                        }`}
+                      >
+                        <span className={`font-medium ${isToday ? 'text-[var(--accent)]' : 'text-[var(--text)]'}`}>
+                          {schedule.day}
+                          {isToday && (
+                            <span className="ml-2 text-xs bg-[var(--accent)] text-[var(--background)] px-2 py-0.5 rounded-full">
+                              Today
+                            </span>
+                          )}
+                        </span>
+                        <span className={isToday ? 'text-[var(--text)] font-medium' : 'text-[var(--text-secondary)]'}>
+                          {schedule.hours}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            </ComingSoonModal>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">

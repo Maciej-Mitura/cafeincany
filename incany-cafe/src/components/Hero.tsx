@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Button from '@/components/ui/Button';
 
 export default function Hero() {
@@ -113,55 +114,31 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Image Placeholder */}
+          {/* Right Column - Hero Image */}
           <div className="relative lg:h-[600px] h-[400px] group">
-            {/* Main image placeholder */}
-            <div className="relative w-full h-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 group-hover:scale-[1.02]" style={{ boxShadow: 'var(--shadow-lg)' }}>
-              {/* Background pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-muted)] via-[var(--surface-elevated)] to-[var(--surface)]" />
-              
-              {/* Animated circles */}
-              <div className="absolute top-20 left-20 w-32 h-32 bg-[var(--accent)] opacity-20 rounded-full blur-3xl animate-float" />
-              <div className="absolute bottom-20 right-20 w-40 h-40 bg-[var(--accent-hover)] opacity-20 rounded-full blur-3xl animate-float-delayed" />
-              
-              {/* Grid overlay */}
-              <div
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px),
-                                   linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
-                  backgroundSize: '50px 50px',
-                }}
+            <div
+              className="relative w-full h-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 group-hover:scale-[1.02]"
+              style={{ boxShadow: 'var(--shadow-lg)' }}
+            >
+              <Image
+                src="/incany_street_view.jpg"
+                alt="Straataanzicht van Café In Cany in de avond"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+                priority
               />
-              
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent opacity-60" />
-              
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <div className="w-24 h-24 mx-auto bg-[var(--accent)] rounded-full flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" style={{ boxShadow: 'var(--shadow-lg)' }}>
-                    <svg
-                      className="w-12 h-12 text-[var(--background)]"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z" />
-                    </svg>
-                  </div>
-                  <p className="text-[var(--text)] font-[family:var(--font-heading)] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Image Placeholder
-                  </p>
-                  <p className="text-[var(--text-secondary)] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    Replace with your café image
-                  </p>
-                </div>
-              </div>
+
+              {/* Subtle gradient overlay for readability */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
             </div>
 
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent)] opacity-20 rounded-full blur-2xl animate-pulse-slow" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--accent-hover)] opacity-20 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+            <div
+              className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--accent-hover)] opacity-20 rounded-full blur-2xl animate-pulse-slow"
+              style={{ animationDelay: '1s' }}
+            />
           </div>
         </div>
       </div>

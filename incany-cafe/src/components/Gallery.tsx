@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Section from '@/components/ui/Section';
-import SectionHeader from '@/components/ui/SectionHeader';
+import { useState } from "react";
+import Section from "@/components/ui/Section";
+import SectionHeader from "@/components/ui/SectionHeader";
+import ComingSoonModal from "@/components/ui/ComingSoonModal";
 
 interface GalleryImage {
   id: number;
@@ -46,12 +47,20 @@ export default function Gallery() {
               key={image.id}
               onMouseEnter={() => setHoveredImage(image.id)}
               onMouseLeave={() => setHoveredImage(null)}
-              className={`group relative ${heightClasses[image.height]} rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] cursor-pointer transition-all duration-300`}
-              style={{
-                boxShadow: hoveredImage === image.id ? 'var(--shadow-lg)' : 'var(--shadow)',
-                transform: hoveredImage === image.id ? 'scale(1.02)' : 'scale(1)',
-              }}
             >
+              <ComingSoonModal
+                active={hoveredImage === image.id}
+                title="Sfeerbeeld binnenkort"
+                subtitle={image.caption}
+                aria-label={`Sfeerbeeld ${image.caption} binnenkort`}
+              >
+                <div
+                  className={`group relative ${heightClasses[image.height]} rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] cursor-pointer transition-all duration-300`}
+                  style={{
+                    boxShadow: hoveredImage === image.id ? "var(--shadow-lg)" : "var(--shadow)",
+                    transform: hoveredImage === image.id ? "scale(1.02)" : "scale(1)",
+                  }}
+                >
               {/* Background Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-muted)] via-[var(--surface-elevated)] to-[var(--surface)]" />
               
@@ -166,12 +175,14 @@ export default function Gallery() {
                 </div>
               </div>
 
-              {/* Image Number Badge */}
-              <div className="absolute top-3 right-3 w-8 h-8 bg-[var(--surface)]/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-[var(--border)]">
-                <span className="text-xs font-medium text-[var(--accent)]">
-                  {image.id}
-                </span>
-              </div>
+                  {/* Image Number Badge */}
+                  <div className="absolute top-3 right-3 w-8 h-8 bg-[var(--surface)]/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-[var(--border)]">
+                    <span className="text-xs font-medium text-[var(--accent)]">
+                      {image.id}
+                    </span>
+                  </div>
+                </div>
+              </ComingSoonModal>
             </div>
           ))}
         </div>

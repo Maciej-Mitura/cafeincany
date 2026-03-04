@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
+import ComingSoonModal from '@/components/ui/ComingSoonModal';
 import menuData from '@/data/menu.json';
 
 // TypeScript interfaces for type safety
@@ -64,22 +65,28 @@ export default function Menu() {
         level={2}
       />
 
-      {/* Download Menu Button */}
-      <div className="text-center mb-12">
-        <Button
-          onClick={handleDownloadMenu}
-          variant="primary"
-          size="md"
-          icon={
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          }
-          iconPosition="left"
-        >
-          Download Drankkaart (PDF) <span className="text-xs opacity-75">(Komt binnenkort)</span>
-        </Button>
-      </div>
+      <ComingSoonModal
+        active={true}
+        title="Onze kaart wordt vernieuwd"
+        subtitle="De filters en items van onze drankkaart zijn binnenkort beschikbaar."
+        aria-label="Menu coming soon"
+      >
+        {/* Download Menu Button */}
+        <div className="text-center mb-12">
+          <Button
+            onClick={handleDownloadMenu}
+            variant="primary"
+            size="md"
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            }
+            iconPosition="left"
+          >
+            Download Drankkaart (PDF) <span className="text-xs opacity-75">(Komt binnenkort)</span>
+          </Button>
+        </div>
 
         {/* Category Tabs */}
         <div className="mb-12">
@@ -195,6 +202,7 @@ export default function Menu() {
             Ons volledige assortiment is groter dan deze kaart. Vraag gerust aan ons personeel naar je favoriete biertje of speciale dranken.
           </p>
         </div>
+      </ComingSoonModal>
     </Section>
   );
 }

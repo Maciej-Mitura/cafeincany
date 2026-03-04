@@ -50,7 +50,7 @@ export default function InfoPage() {
                 <p className="text-[var(--text-secondary)]">hello@cafeincany.com</p>
               </div>
               <div>
-                <p className="font-medium text-[var(--accent)] mb-1">Address</p>
+                <p className="font-medium text-[var(--accent)] mb-1">Adres</p>
                 <p className="text-[var(--text-secondary)]">123 Coffee Street<br />Your City, ST 12345</p>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
+import ComingSoonModal from '@/components/ui/ComingSoonModal';
 
 interface DietaryTag {
   label: string;
@@ -92,19 +93,26 @@ const getTagStyles = (color: string) => {
 
 export default function Bestsellers() {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const isComingSoon = true;
 
   return (
-    <Section id="bestsellers" background="default" spacing="lg">
-      <SectionHeader
-        badge="Populairste Keuzes"
-        title="Onze Toppers"
-        subtitle="De pintjes en hapjes waar iedereen voor terugkomt"
-        align="center"
-        level={2}
-      />
+    <ComingSoonModal
+      active={isComingSoon}
+      title="Binnenkort beschikbaar"
+      subtitle="Onze populairste keuzes en volledige kaart worden momenteel vernieuwd."
+      aria-label="Bestsellers coming soon"
+    >
+      <Section id="bestsellers" background="default" spacing="lg">
+        <SectionHeader
+          badge="Populairste Keuzes"
+          title="Onze Toppers"
+          subtitle="De pintjes en hapjes waar iedereen voor terugkomt"
+          align="center"
+          level={2}
+        />
 
-      {/* Menu Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Menu Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuItems.map((item, index) => (
             <div
               key={index}
@@ -112,14 +120,22 @@ export default function Bestsellers() {
               onMouseLeave={() => setHoveredItem(null)}
               className="group relative bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 transition-all duration-300 cursor-default"
               style={{
-                boxShadow: hoveredItem === index ? 'var(--shadow-lg)' : 'var(--shadow)',
-                transform: hoveredItem === index ? 'translateY(-4px)' : 'translateY(0)',
-                borderColor: hoveredItem === index ? 'var(--accent-muted)' : 'var(--border)',
+                boxShadow:
+                  hoveredItem === index ? 'var(--shadow-lg)' : 'var(--shadow)',
+                transform:
+                  hoveredItem === index ? 'translateY(-4px)' : 'translateY(0)',
+                borderColor:
+                  hoveredItem === index
+                    ? 'var(--accent-muted)'
+                    : 'var(--border)',
               }}
             >
               {/* New Badge */}
               {item.isNew && (
-                <div className="absolute -top-3 -right-3 bg-[var(--accent)] text-[var(--background)] text-xs font-bold uppercase px-3 py-1 rounded-full border-2 border-[var(--background)]" style={{ boxShadow: 'var(--shadow)' }}>
+                <div
+                  className="absolute -top-3 -right-3 bg-[var(--accent)] text-[var(--background)] text-xs font-bold uppercase px-3 py-1 rounded-full border-2 border-[var(--background)]"
+                  style={{ boxShadow: 'var(--shadow)' }}
+                >
                   New
                 </div>
               )}
@@ -169,35 +185,39 @@ export default function Bestsellers() {
           ))}
         </div>
 
-      {/* View Full Menu CTA */}
-      <div className="text-center mt-12">
-        <Button
-          onClick={() => {
-            const menuSection = document.getElementById('menu');
-            menuSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }}
-          variant="secondary"
-          size="lg"
-          icon={
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          }
-        >
-          Bekijk Volledige Kaart
-        </Button>
-      </div>
-    </Section>
+        {/* View Full Menu CTA */}
+        <div className="text-center mt-12">
+          <Button
+            onClick={() => {
+              const menuSection = document.getElementById('menu');
+              menuSection?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }}
+            variant="secondary"
+            size="lg"
+            icon={
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            }
+          >
+            Bekijk Volledige Kaart
+          </Button>
+        </div>
+      </Section>
+    </ComingSoonModal>
   );
 }
