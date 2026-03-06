@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--surface)] border-t border-[var(--border)]">
+    <footer className="bg-surface border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -25,10 +25,10 @@ export default function Footer() {
                 />
               </div>
             </div> */}
-            <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] font-bold">
+            <h3 className="text-2xl font-heading text-text font-bold">
               Café In Cany
             </h3>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed py-2">
+            <p className="text-text-secondary text-sm leading-relaxed py-2">
               Een gezellig bruin café waar goed getapte pintjes en warme
               gastvrijheid centraal staan. Kom langs en geniet van de sfeer.
             </p>
@@ -36,10 +36,10 @@ export default function Footer() {
 
           {/* Address */}
           <div className="space-y-4">
-            <h3 className="text-lg font-[family:var(--font-heading)] text-[var(--text)] font-semibold">
+            <h3 className="text-lg font-heading text-text font-semibold">
               Bezoek Ons
             </h3>
-            <address className="not-italic text-[var(--text-secondary)] text-sm space-y-2 py-2">
+            <address className="not-italic text-text-secondary text-sm space-y-2 py-2">
               <p>{cafeInfo.address.street}</p>
               <p>
                 {cafeInfo.address.city}, {cafeInfo.address.state}{' '}
@@ -48,7 +48,7 @@ export default function Footer() {
               <p className="pt-2">
                 <a
                   href={`tel:${cafeInfo.contact.phoneRaw}`}
-                  className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+                  className="text-accent hover:text-accent-hover transition-colors cursor-pointer"
                 >
                   {cafeInfo.contact.phone}
                 </a>
@@ -56,7 +56,7 @@ export default function Footer() {
               <p>
                 <a
                   href={`mailto:${cafeInfo.contact.email}`}
-                  className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer"
+                  className="text-accent hover:text-accent-hover transition-colors cursor-pointer"
                 >
                   {cafeInfo.contact.email}
                 </a>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div className="space-y-4">
-            <h3 className="text-lg font-[family:var(--font-heading)] text-[var(--text)] font-semibold">
+            <h3 className="text-lg font-heading text-text font-semibold">
               Openingsuren
             </h3>
             {/* <div className="text-[var(--text-secondary)] text-sm space-y-2">
@@ -83,7 +83,7 @@ export default function Footer() {
                 <span>16:00 - 00:00</span>
               </div>
             </div> */}
-            <div className="text-[var(--text-secondary)] text-sm space-y-2">
+            <div className="text-text-secondary text-sm space-y-2">
               <div className="flex justify-between py-2">
                 <span>De uren zullen binnenkort worden gepubliceerd</span>
               </div>
@@ -92,37 +92,37 @@ export default function Footer() {
 
           {/* Quick Links & Social */}
           <div className="space-y-4">
-            <h3 className="text-lg font-[family:var(--font-heading)] text-[var(--text)] font-semibold">
+            <h3 className="text-lg font-heading text-text font-semibold">
               Blijf in Contact
             </h3>
             <nav className="flex flex-col space-y-2 text-sm py-2">
               <a
                 href="#home"
-                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
               >
                 Over ons
               </a>
               <a
                 href="#menu"
-                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
               >
                 Kaart
               </a>
               <a
                 href="#events"
-                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
               >
                 Evenementen
               </a>
               <a
                 href="#location"
-                className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+                className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
               >
                 Locatie
               </a>
@@ -135,7 +135,7 @@ export default function Footer() {
             </nav>
 
             <div className="pt-4">
-              <p className="text-sm text-[var(--text-secondary)] mb-3">
+              <p className="text-sm text-text-secondary mb-3">
                 Volg ons
               </p>
               <div className="flex gap-3">
@@ -143,11 +143,11 @@ export default function Footer() {
                   href={`https://instagram.com/${cafeInfo.social.instagram}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 bg-[var(--surface-elevated)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                  className="w-9 h-9 bg-surface-elevated border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
                   aria-label="Instagram"
                 >
                   <svg
-                    className="w-4 h-4 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                    className="w-4 h-4 text-text-secondary group-hover:text-background"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -158,11 +158,11 @@ export default function Footer() {
                   href={`https://facebook.com/${cafeInfo.social.facebook}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 bg-[var(--surface-elevated)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                  className="w-9 h-9 bg-surface-elevated border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-4 h-4 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                    className="w-4 h-4 text-text-secondary group-hover:text-background"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -173,11 +173,11 @@ export default function Footer() {
                   href={`https://twitter.com/${cafeInfo.social.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 bg-[var(--surface-elevated)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                  className="w-9 h-9 bg-surface-elevated border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
                   aria-label="Twitter"
                 >
                   <svg
-                    className="w-4 h-4 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                    className="w-4 h-4 text-text-secondary group-hover:text-background"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -190,10 +190,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[var(--border)] py-6">
+        <div className="border-t border-border py-6">
           <div className="text-center">
             {/* Copyright */}
-            <p className="text-sm text-[var(--muted)]">
+            <p className="text-sm text-muted">
               © {currentYear} {cafeInfo.name}. Alle rechten voorbehouden.
             </p>
           </div>

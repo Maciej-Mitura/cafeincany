@@ -79,7 +79,7 @@ export default function Events() {
       />
 
       <ComingSoonModal
-        active={true}
+        active={false}
         title="Evenementen binnenkort beschikbaar"
         subtitle="De filters en lijst van evenementen worden momenteel uitgewerkt."
         aria-label="Events coming soon"
@@ -139,7 +139,7 @@ export default function Events() {
                 {/* Event Header */}
                 <div className="mb-4">
                   <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-xl font-[family:var(--font-heading)] text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1">
+                    <h3 className="text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1">
                       {event.title}
                     </h3>
                     <span

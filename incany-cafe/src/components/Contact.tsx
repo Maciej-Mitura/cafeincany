@@ -136,12 +136,12 @@ export default function Contact() {
           {/* Phone */}
           <a
             href={`tel:${cafeInfo.contact.phoneRaw}`}
-            className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer"
+            className="group flex items-start gap-4 bg-surface-elevated rounded-[var(--radius-lg)] border border-border p-6 hover:border-accent-muted transition-all duration-300 cursor-pointer"
             style={{ boxShadow: 'var(--shadow)' }}
           >
-            <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)] group-hover:bg-[var(--accent)]/20 transition-colors">
+            <div className="w-12 h-12 bg-accent/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-accent-muted group-hover:bg-accent/20 transition-colors">
               <svg
-                className="w-6 h-6 text-[var(--accent)]"
+                className="w-6 h-6 text-accent"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -155,25 +155,25 @@ export default function Contact() {
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-[var(--text)] mb-1 group-hover:text-[var(--accent)] transition-colors">
+              <h3 className="text-lg font-semibold text-text mb-1 group-hover:text-accent transition-colors">
                 Phone
               </h3>
-              <p className="text-[var(--text-secondary)]">
+              <p className="text-text-secondary">
                 {cafeInfo.contact.phone}
               </p>
-              <p className="text-sm text-[var(--muted)] mt-1">Click to call</p>
+              <p className="text-sm text-muted mt-1">Click to call</p>
             </div>
           </a>
 
           {/* Email */}
           <a
             href={`mailto:${cafeInfo.contact.email}`}
-            className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer"
+            className="group flex items-start gap-4 bg-surface-elevated rounded-[var(--radius-lg)] border border-border p-6 hover:border-accent-muted transition-all duration-300 cursor-pointer"
             style={{ boxShadow: 'var(--shadow)' }}
           >
-            <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)] group-hover:bg-[var(--accent)]/20 transition-colors">
+            <div className="w-12 h-12 bg-accent/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-accent-muted group-hover:bg-accent/20 transition-colors">
               <svg
-                className="w-6 h-6 text-[var(--accent)]"
+                className="w-6 h-6 text-accent"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -187,13 +187,13 @@ export default function Contact() {
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-[var(--text)] mb-1 group-hover:text-[var(--accent)] transition-colors">
+              <h3 className="text-lg font-semibold text-text mb-1 group-hover:text-accent transition-colors">
                 Email
               </h3>
-              <p className="text-[var(--text-secondary)]">
+              <p className="text-text-secondary">
                 {cafeInfo.contact.email}
               </p>
-              <p className="text-sm text-[var(--muted)] mt-1">
+              <p className="text-sm text-muted mt-1">
                 Send us a message
               </p>
             </div>
@@ -201,13 +201,13 @@ export default function Contact() {
 
           {/* Social Media */}
           <div
-            className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6"
+            className="bg-surface-elevated rounded-[var(--radius-lg)] border border-border p-6"
             style={{ boxShadow: 'var(--shadow)' }}
           >
             <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
+              <div className="w-12 h-12 bg-accent/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-accent-muted">
                 <svg
-                  className="w-6 h-6 text-[var(--accent)]"
+                  className="w-6 h-6 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -221,10 +221,10 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-[var(--text)] mb-1">
+                <h3 className="text-lg font-semibold text-text mb-1">
                   Follow Us
                 </h3>
-                <p className="text-sm text-[var(--text-secondary)]">
+                <p className="text-sm text-text-secondary">
                   Stay updated with our latest news
                 </p>
               </div>
@@ -235,10 +235,10 @@ export default function Contact() {
                 href={`https://instagram.com/${cafeInfo.social.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                className="w-10 h-10 bg-surface border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
               >
                 <svg
-                  className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                  className="w-5 h-5 text-text-secondary group-hover:text-background"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -249,10 +249,10 @@ export default function Contact() {
                 href={`https://facebook.com/${cafeInfo.social.facebook}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                className="w-10 h-10 bg-surface border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
               >
                 <svg
-                  className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                  className="w-5 h-5 text-text-secondary group-hover:text-background"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -263,10 +263,10 @@ export default function Contact() {
                 href={`https://twitter.com/${cafeInfo.social.twitter}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius)] flex items-center justify-center hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all duration-300 group cursor-pointer"
+                className="w-10 h-10 bg-surface border border-border rounded-[var(--radius)] flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group cursor-pointer"
               >
                 <svg
-                  className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--background)]"
+                  className="w-5 h-5 text-text-secondary group-hover:text-background"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -279,10 +279,10 @@ export default function Contact() {
 
         {/* Right Column - Contact Form */}
         <div
-          className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8"
+          className="bg-surface-elevated rounded-[var(--radius-lg)] border border-border p-8"
           style={{ boxShadow: 'var(--shadow-lg)' }}
         >
-          <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-6">
+          <h3 className="text-2xl font-[family:var(--font-heading)] text-text mb-6">
             Stuur ons een Bericht
           </h3>
 
@@ -292,9 +292,9 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-[var(--text)] mb-2"
+                className="block text-sm font-medium text-text mb-2"
               >
-                Naam <span className="text-[var(--error)]">*</span>
+                Naam <span className="text-error">*</span>
               </label>
               <input
                 type="text"
@@ -303,11 +303,11 @@ export default function Contact() {
                 value={formData.name}
                 onChange={(e) => handleChange('name', e.target.value)}
                 required
-                className={`w-full px-4 py-3 bg-[var(--surface)] text-[var(--text)] border ${errors.name ? 'border-[var(--error)]' : 'border-[var(--border)]'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-colors`}
+                className={`w-full px-4 py-3 bg-surface text-text border ${errors.name ? 'border-error' : 'border-border'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors`}
                 placeholder="Jan Janssens"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-[var(--error)]">
+                <p className="mt-1 text-sm text-error">
                   {errors.name}
                 </p>
               )}
@@ -317,9 +317,9 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-[var(--text)] mb-2"
+                className="block text-sm font-medium text-text mb-2"
               >
-                E-mailadres <span className="text-[var(--error)]">*</span>
+                E-mailadres <span className="text-error">*</span>
               </label>
               <input
                 type="email"
@@ -328,11 +328,11 @@ export default function Contact() {
                 value={formData.email}
                 onChange={(e) => handleChange('email', e.target.value)}
                 required
-                className={`w-full px-4 py-3 bg-[var(--surface)] text-[var(--text)] border ${errors.email ? 'border-[var(--error)]' : 'border-[var(--border)]'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-colors`}
+                className={`w-full px-4 py-3 bg-surface text-text border ${errors.email ? 'border-error' : 'border-border'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors`}
                 placeholder="jan@voorbeeld.be"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-[var(--error)]">
+                <p className="mt-1 text-sm text-error">
                   {errors.email}
                 </p>
               )}
@@ -342,9 +342,9 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-[var(--text)] mb-2"
+                className="block text-sm font-medium text-text mb-2"
               >
-                Bericht <span className="text-[var(--error)]">*</span>
+                Bericht <span className="text-error">*</span>
               </label>
               <textarea
                 id="message"
@@ -353,11 +353,11 @@ export default function Contact() {
                 value={formData.message}
                 onChange={(e) => handleChange('message', e.target.value)}
                 required
-                className={`w-full px-4 py-3 bg-[var(--surface)] text-[var(--text)] border ${errors.message ? 'border-[var(--error)]' : 'border-[var(--border)]'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent resize-none transition-colors`}
+                className={`w-full px-4 py-3 bg-surface text-text border ${errors.message ? 'border-error' : 'border-border'} rounded-[var(--radius)] focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none transition-colors`}
                 placeholder="Vertel ons wat je te zeggen hebt..."
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-[var(--error)]">
+                <p className="mt-1 text-sm text-error">
                   {errors.message}
                 </p>
               )}
@@ -380,7 +380,7 @@ export default function Contact() {
       {/* Success Toast */}
       {showSuccess && (
         <div
-          className="fixed bottom-8 right-8 bg-[var(--success)] text-[var(--background)] px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50"
+          className="fixed bottom-8 right-8 bg-success text-background px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50"
           style={{ boxShadow: 'var(--shadow-lg)' }}
         >
           <svg
@@ -426,7 +426,7 @@ export default function Contact() {
       {/* Error Toast */}
       {showError && (
         <div
-          className="fixed bottom-8 right-8 bg-[var(--error)] text-[var(--background)] px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50"
+          className="fixed bottom-8 right-8 bg-error text-background px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50"
           style={{ boxShadow: 'var(--shadow-lg)' }}
         >
           <svg

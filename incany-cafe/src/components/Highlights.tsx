@@ -78,7 +78,7 @@ export default function Highlights() {
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-3 transition-colors duration-300 group-hover:text-[var(--accent)]">
+              <h3 className="text-2xl font-heading text-[var(--text)] mb-3 transition-colors duration-300 group-hover:text-[var(--accent)]">
                 {highlight.title}
               </h3>
               <p className="text-[var(--text-secondary)] leading-relaxed">

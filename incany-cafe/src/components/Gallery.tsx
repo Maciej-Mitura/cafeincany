@@ -124,7 +124,7 @@ export default function Gallery() {
                 <div className="h-full flex flex-col items-center justify-center p-6">
                   {/* Caption */}
                   <h3
-                    className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2 transition-all duration-300"
+                    className="text-2xl font-heading text-[var(--text)] mb-2 transition-all duration-300"
                     style={{
                       transform: hoveredImage === image.id ? 'translateY(0)' : 'translateY(20px)',
                       opacity: hoveredImage === image.id ? 1 : 0,

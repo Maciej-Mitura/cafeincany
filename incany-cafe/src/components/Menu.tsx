@@ -32,9 +32,10 @@ export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('Alles');
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const filteredItems = activeCategory === 'Alles' 
-    ? menuItems 
-    : menuItems.filter(item => item.category === activeCategory);
+  const filteredItems =
+    activeCategory === 'Alles'
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeCategory);
 
   // Reset expansion when category changes
   useEffect(() => {
@@ -42,14 +43,16 @@ export default function Menu() {
   }, [activeCategory]);
 
   // Determine which items to display
-  const displayedItems = isExpanded 
-    ? filteredItems 
+  const displayedItems = isExpanded
+    ? filteredItems
     : filteredItems.slice(0, ITEMS_PER_PAGE);
 
   const hasMoreItems = filteredItems.length > ITEMS_PER_PAGE;
 
   const handleDownloadMenu = () => {
-    alert('PDF menu download is not yet available. This is a placeholder button.');
+    alert(
+      'PDF menu download is not yet available. This is a placeholder button.',
+    );
   };
 
   const handleToggleExpand = () => {
@@ -66,7 +69,7 @@ export default function Menu() {
       />
 
       <ComingSoonModal
-        active={true}
+        active={false}
         title="Onze kaart wordt vernieuwd"
         subtitle="De filters en items van onze drankkaart zijn binnenkort beschikbaar."
         aria-label="Menu coming soon"
@@ -78,13 +81,25 @@ export default function Menu() {
             variant="primary"
             size="md"
             icon={
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
             }
             iconPosition="left"
           >
-            Download Drankkaart (PDF) <span className="text-xs opacity-75">(Komt binnenkort)</span>
+            Download Drankkaart (PDF){' '}
+            <span className="text-xs opacity-75">(Komt binnenkort)</span>
           </Button>
         </div>
 
@@ -113,14 +128,14 @@ export default function Menu() {
             <div
               key={`${item.category}-${index}`}
               className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-default animate-fade-in"
-              style={{ 
+              style={{
                 boxShadow: 'var(--shadow)',
                 animationDelay: `${index * 30}ms`,
               }}
             >
               {/* Item Header */}
               <div className="flex justify-between items-start mb-3">
-                <h3 className="text-xl font-[family:var(--font-heading)] text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1 pr-4">
+                <h3 className="text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1 pr-4">
                   {item.name}
                 </h3>
                 <span className="text-xl font-semibold text-[var(--accent)] whitespace-nowrap">
@@ -166,21 +181,42 @@ export default function Menu() {
               size="md"
               icon={
                 isExpanded ? (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 15l7-7 7 7"
+                    />
                   </svg>
                 ) : (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 )
               }
               iconPosition="right"
             >
-              {isExpanded 
-                ? 'Toon minder' 
-                : `Toon meer (${filteredItems.length - ITEMS_PER_PAGE} meer)`
-              }
+              {isExpanded
+                ? 'Toon minder'
+                : `Toon meer (${filteredItems.length - ITEMS_PER_PAGE} meer)`}
             </Button>
           </div>
         )}
@@ -188,7 +224,7 @@ export default function Menu() {
         {/* Category Item Count */}
         <div className="text-center mt-8">
           <p className="text-[var(--muted)] text-sm">
-            {filteredItems.length} item{filteredItems.length !== 1 ? 's' : ''} 
+            {filteredItems.length} item{filteredItems.length !== 1 ? 's' : ''}
             {activeCategory !== 'Alles' && ` in ${activeCategory}`}
           </p>
         </div>
@@ -196,10 +232,13 @@ export default function Menu() {
         {/* Additional Info */}
         <div className="mt-12 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 text-center">
           <p className="text-[var(--text-secondary)] mb-2">
-            <span className="text-[var(--accent)] font-medium">Speciale Wensen?</span>
+            <span className="text-[var(--accent)] font-medium">
+              Speciale Wensen?
+            </span>
           </p>
           <p className="text-[var(--muted)] text-sm">
-            Ons volledige assortiment is groter dan deze kaart. Vraag gerust aan ons personeel naar je favoriete biertje of speciale dranken.
+            Ons volledige assortiment is groter dan deze kaart. Vraag gerust aan
+            ons personeel naar je favoriete biertje of speciale dranken.
           </p>
         </div>
       </ComingSoonModal>

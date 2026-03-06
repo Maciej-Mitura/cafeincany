@@ -108,7 +108,7 @@ export default function Navbar() {
                   priority
                 />
               </div> */}
-              <span className="text-xl font-[family:var(--font-heading)] text-[var(--text)] font-semibold">
+              <span className="text-xl font-heading text-[var(--text)] font-semibold">
                 Café In Cany
               </span>
             </button>

@@ -56,7 +56,7 @@ export default function Location() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">
+                  <h3 className="text-2xl font-heading text-[var(--text)] mb-2">
                     Adres
                   </h3>
                   <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
@@ -85,7 +85,7 @@ export default function Location() {
 
             {/* Opening Hours Table */}
             <ComingSoonModal
-              active={true}
+              active={false}
               title="Openingsuren worden bijgewerkt"
               subtitle="De tabel met openingsuren is binnenkort beschikbaar."
               aria-label="Opening hours coming soon"
@@ -108,7 +108,7 @@ export default function Location() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">
+                  <h3 className="text-2xl font-heading text-[var(--text)] mb-2">
                       Opening Hours
                     </h3>
                     {todayHours && (

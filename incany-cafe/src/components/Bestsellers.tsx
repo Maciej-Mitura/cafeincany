@@ -22,15 +22,15 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     name: 'Duvel',
-    description: 'De klassieker onder de Belgische bieren. Stevig blond bier met een rijke smaak',
+    description:
+      'De klassieker onder de Belgische bieren. Stevig blond bier met een rijke smaak',
     price: '€4.50',
-    tags: [
-      { label: 'Van \'t Vat', color: 'success' },
-    ],
+    tags: [{ label: "Van 't Vat", color: 'success' }],
   },
   {
     name: 'Westmalle Tripel',
-    description: 'Trappistenbier met complexe smaak, kruidige en fruitige aroma\'s',
+    description:
+      "Trappistenbier met complexe smaak, kruidige en fruitige aroma's",
     price: '€5.20',
     tags: [
       { label: 'Trappist', color: 'accent' },
@@ -41,22 +41,19 @@ const menuItems: MenuItem[] = [
     name: 'Kaasplankje',
     description: 'Selectie van Belgische kazen met noten, druiven en confituur',
     price: '€12.50',
-    tags: [
-      { label: 'Vegetarisch', color: 'success' },
-    ],
+    tags: [{ label: 'Vegetarisch', color: 'success' }],
     isNew: true,
   },
   {
     name: 'Bitterballen (8st)',
     description: 'Krokante bitterballen met mosterd - de perfecte borrelhap',
     price: '€7.50',
-    tags: [
-      { label: 'Huisgemaakt', color: 'accent' },
-    ],
+    tags: [{ label: 'Huisgemaakt', color: 'accent' }],
   },
   {
     name: 'Chouffe Blond',
-    description: 'De legende uit de Ardennen. Fruitig blond bier met unieke karakter',
+    description:
+      'De legende uit de Ardennen. Fruitig blond bier met unieke karakter',
     price: '€4.80',
     tags: [
       { label: 'Speciaal', color: 'warning' },
@@ -67,9 +64,7 @@ const menuItems: MenuItem[] = [
     name: 'Tripel Karmeliet',
     description: 'Complex tripel bier gebrouwen volgens eeuwenoude receptuur',
     price: '€5.00',
-    tags: [
-      { label: 'Premium', color: 'accent' },
-    ],
+    tags: [{ label: 'Premium', color: 'accent' }],
   },
 ];
 
@@ -97,7 +92,8 @@ export default function Bestsellers() {
 
   return (
     <ComingSoonModal
-      active={isComingSoon}
+      // active={isComingSoon}
+      active={false}
       title="Binnenkort beschikbaar"
       subtitle="Onze populairste keuzes en volledige kaart worden momenteel vernieuwd."
       aria-label="Bestsellers coming soon"
@@ -143,7 +139,7 @@ export default function Bestsellers() {
               {/* Item Header */}
               <div className="mb-4">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-[family:var(--font-heading)] text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 pr-2">
+                  <h3 className="text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 pr-2">
                     {item.name}
                   </h3>
                   <span className="text-xl font-semibold text-[var(--accent)] whitespace-nowrap">

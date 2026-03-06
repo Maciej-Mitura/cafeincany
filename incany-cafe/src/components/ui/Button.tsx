@@ -21,12 +21,16 @@ export default function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium rounded-[var(--radius)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles =
+    'inline-flex items-center justify-center gap-2 font-medium rounded-[var(--radius)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variantStyles: Record<ButtonVariant, string> = {
-    primary: 'bg-[var(--accent)] text-[var(--background)] hover:bg-[var(--accent-hover)] hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]',
-    secondary: 'bg-[var(--surface-elevated)] text-[var(--text)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--accent)] hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]',
-    ghost: 'bg-transparent text-[var(--accent)] hover:bg-[var(--surface-elevated)] hover:text-[var(--accent-hover)]',
+    primary:
+      'bg-accent text-background hover:bg-accent-hover hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+    secondary:
+      'bg-surface-elevated text-text border border-border hover:border-accent-muted hover:text-accent hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+    ghost:
+      'bg-transparent text-accent hover:bg-surface-elevated hover:text-accent-hover',
   };
 
   const sizeStyles: Record<ButtonSize, string> = {

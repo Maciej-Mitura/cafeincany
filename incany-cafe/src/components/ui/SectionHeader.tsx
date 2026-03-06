@@ -37,7 +37,7 @@ export default function SectionHeader({
           {badge}
         </span>
       )}
-      <HeadingTag className={`${headingSize} font-[family:var(--font-heading)] text-[var(--text)] mb-4`}>
+      <HeadingTag className={`${headingSize} font-heading text-text mb-4`}>
         {title}
       </HeadingTag>
       {subtitle && (

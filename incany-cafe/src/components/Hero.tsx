@@ -22,16 +22,16 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-[var(--background)] pt-20 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-background pt-20 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8 lg:space-y-10 animate-fade-in-up">
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family:var(--font-heading)] text-[var(--text)] leading-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading text-text leading-tight">
                 Uw Bruine Kroeg in het Hart van{' '}
-                <span className="text-[var(--accent)] relative inline-block">
+                <span className="text-accent relative inline-block">
                   Moorslede
                   <svg
                     className="absolute -bottom-2 left-0 w-full"
@@ -51,7 +51,7 @@ export default function Hero() {
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl lg:text-2xl text-[var(--text-secondary)] max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-xl leading-relaxed">
                 Gezelligheid, goede pinten en speciale avonden in een authentieke sfeer. Welkom bij Café In Cany.
               </p>
             </div>
@@ -134,9 +134,9 @@ export default function Hero() {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent)] opacity-20 rounded-full blur-2xl animate-pulse-slow" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent opacity-20 rounded-full blur-2xl animate-pulse-slow" />
             <div
-              className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--accent-hover)] opacity-20 rounded-full blur-2xl animate-pulse-slow"
+              className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent-hover opacity-20 rounded-full blur-2xl animate-pulse-slow"
               style={{ animationDelay: '1s' }}
             />
           </div>
@@ -146,7 +146,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={handleScrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-full p-2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full p-2"
         aria-label="Scroll to next section"
       >
         <svg
