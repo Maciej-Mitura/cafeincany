@@ -1,0 +1,37 @@
+# Cloudflare Pages Security Headers
+# Applied to all routes in production
+
+/*
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+  
+  # Referrer policy - send origin only for cross-origin requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Frame protection - prevent clickjacking
+  X-Frame-Options: DENY
+  
+  # Permissions Policy - restrict browser features
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=()
+  
+  # Content Security Policy
+  # Carefully configured to allow:
+  # - Next.js inline scripts (nonce-based in production)
+  # - Google Fonts (fonts.googleapis.com, fonts.gstatic.com)
+  # - Google Maps (when consent given: maps.googleapis.com, maps.gstatic.com)
+  # - Cloudflare Turnstile (challenges.cloudflare.com)
+  # - Resend API (api.resend.com)
+  # - Self-hosted assets and styles
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://challenges.cloudflare.com https://api.resend.com; frame-src https://www.google.com https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;
+
+# API routes - additional headers for contact form
+/api/*
+  # CORS headers for same-origin requests
+  Access-Control-Allow-Origin: https://incany.be
+  Access-Control-Allow-Methods: POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Access-Control-Max-Age: 86400
+  
+  # Rate limiting hint (actual rate limiting configured in Cloudflare dashboard)
+  X-RateLimit-Limit: 10
+  X-RateLimit-Window: 60

@@ -1,36 +1,273 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Café In Cany Website
 
-## Getting Started
+**Production website for Café In Cany** - Bruine kroeg in Moorslede, Belgium.
 
-First, run the development server:
+🌐 **Live Site:** https://incany.be  
+🏗️ **Tech Stack:** Next.js 16 + Cloudflare Pages + Cloudflare Pages Functions  
+📧 **Contact Form:** Resend API + Cloudflare Turnstile  
+🔒 **Security:** Production-ready headers, rate limiting, XSS protection
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18.x or higher
+- npm, yarn, pnpm, or bun
+
+### Local Development
+
+1. **Clone and install:**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables:**
+   ```bash
+   cp .env.local.example .env.local
+   ```
+   
+   Edit `.env.local` with your keys:
+   ```env
+   RESEND_API_KEY=re_xxxxxxxxxxxxx
+   NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4xxxxxxxxxxxxx
+   TURNSTILE_SECRET_KEY=0x4xxxxxxxxxxxxx
+   ```
+
+3. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+   
+   Open [http://localhost:3000](http://localhost:3000)
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📁 Project Structure
+
+```
+incany-cafe/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── layout.tsx          # Root layout (metadata, fonts)
+│   │   ├── page.tsx            # Homepage
+│   │   ├── error.tsx           # Error boundary
+│   │   ├── robots.ts           # robots.txt generator
+│   │   ├── sitemap.ts          # sitemap.xml generator
+│   │   ├── icon.svg            # Favicon
+│   │   ├── privacy/            # Privacy policy page
+│   │   └── api/contact/        # Contact API (local dev only)
+│   ├── components/             # React components
+│   │   ├── Navbar.tsx          # Navigation
+│   │   ├── Hero.tsx            # Hero section
+│   │   ├── Menu.tsx            # Menu with pagination
+│   │   ├── Contact.tsx         # Contact form + Turnstile
+│   │   ├── Location.tsx        # Consent-gated Google Maps
+│   │   ├── StructuredData.tsx  # JSON-LD schema
+│   │   └── ui/                 # Reusable UI components
+│   ├── data/                   # Data files
+│   │   ├── cafe.ts             # Café info (hours, address, contact)
+│   │   └── menu.json           # Menu items
+│   └── functions/              # Cloudflare Pages Functions
+│       └── api/contact.ts      # Production contact form handler
+├── public/
+│   ├── _headers                # Cloudflare security headers
+│   └── _redirects              # Cloudflare redirects (www → non-www)
+└── PRODUCTION_DEPLOYMENT.md    # Full deployment guide
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔐 Security Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ **Cloudflare Turnstile** on contact form (bot protection)
+- ✅ **Honeypot** anti-spam field
+- ✅ **Server-side validation** (name, email, message)
+- ✅ **HTML sanitization** (XSS prevention)
+- ✅ **Rate limiting** (10 requests/minute per IP)
+- ✅ **Security headers** (CSP, X-Frame-Options, HSTS, etc.)
+- ✅ **HTTPS only** with strict SSL/TLS
 
-## Learn More
+See [SECURITY_SETUP.md](./SECURITY_SETUP.md) for details.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌍 Privacy & Consent
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ **Privacy page** at `/privacy` (clear Dutch, GDPR-friendly)
+- ✅ **Consent-gated Google Maps** (loads only after explicit consent)
+- ✅ **localStorage** consent persistence with revoke option
+- ✅ **No tracking** (no GA, no ad cookies, no Meta Pixel)
 
-## Deploy on Vercel
+See [PRIVACY_IMPLEMENTATION_SUMMARY.md](./PRIVACY_IMPLEMENTATION_SUMMARY.md) for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📧 Contact Form Architecture
+
+```
+User → Contact.tsx (frontend)
+  ↓ POST /api/contact
+  ↓ Cloudflare Pages Function (src/functions/api/contact.ts)
+  ↓ Turnstile verification + validation + sanitization
+  ↓ Resend API
+  ↓ Email to info@incany.be
+```
+
+**Local development:** Uses Next.js API route (`src/app/api/contact/route.ts`)  
+**Production:** Uses Cloudflare Pages Function (`src/functions/api/contact.ts`)
+
+See [CLOUDFLARE_PAGES_SETUP.md](./CLOUDFLARE_PAGES_SETUP.md) for setup.
+
+---
+
+## 🚢 Deployment
+
+**Platform:** Cloudflare Pages  
+**Deployment:** Auto-deploy from Git (main branch)
+
+### Quick Deploy
+
+1. Push to Git (GitHub, GitLab, etc.)
+2. Connect repository to Cloudflare Pages
+3. Set environment variables in Cloudflare dashboard:
+   - `RESEND_API_KEY`
+   - `TURNSTILE_SECRET_KEY`
+   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+4. Deploy!
+
+### Full Production Setup
+
+See **[PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md)** for:
+- Cloudflare Pages configuration
+- Custom domain setup (incany.be)
+- SSL/TLS settings
+- WAF and rate limiting rules
+- DNS configuration
+- Security hardening
+- Post-deployment verification
+- Monitoring setup
+
+---
+
+## 🛠️ Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server locally
+- `npm run lint` - Run ESLint
+
+### Environment Variables
+
+**Required for local development:**
+```env
+RESEND_API_KEY=            # Resend API key (from https://resend.com)
+TURNSTILE_SECRET_KEY=      # Cloudflare Turnstile secret key
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=  # Cloudflare Turnstile site key (public)
+```
+
+**Production (Cloudflare Pages):**
+Set in Cloudflare dashboard → Pages project → Settings → Environment variables
+
+---
+
+## 📊 SEO & Structured Data
+
+- ✅ **Metadata:** Optimized title, description, Open Graph, Twitter Cards
+- ✅ **Language:** nl-BE (Belgian Dutch)
+- ✅ **robots.txt:** `/robots.txt` (allows all, disallows `/api/`)
+- ✅ **Sitemap:** `/sitemap.xml` (auto-generated)
+- ✅ **JSON-LD:** BarOrPub structured data for Google Search
+- ⚠️ **Favicon:** Placeholder beer mug icon (replace with logo)
+- ⚠️ **OG Image:** Missing (create `public/og-image.jpg` 1200x630px)
+
+### TODO for SEO
+- [ ] Create Open Graph image (`public/og-image.jpg`)
+- [ ] Replace favicon with actual logo (`src/app/icon.svg` or `icon.png`)
+- [ ] Add Google Search Console verification code
+- [ ] Submit sitemap to Google Search Console
+
+---
+
+## 🧪 Testing
+
+### Local Testing
+```bash
+npm run build
+npm start
+```
+Visit http://localhost:3000 and test:
+- Contact form submission
+- Google Maps consent flow
+- Error boundary (force error to test)
+- Privacy page
+- All sections render correctly
+
+### Production Testing Checklist
+See [PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md) → Post-Deployment Verification
+
+---
+
+## 📚 Documentation
+
+- **[PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md)** - Full deployment guide
+- **[SECURITY_SETUP.md](./SECURITY_SETUP.md)** - Security implementation details
+- **[SECURITY_IMPLEMENTATION_SUMMARY.md](./SECURITY_IMPLEMENTATION_SUMMARY.md)** - Security summary
+- **[PRIVACY_IMPLEMENTATION_SUMMARY.md](./PRIVACY_IMPLEMENTATION_SUMMARY.md)** - Privacy features
+- **[CLOUDFLARE_PAGES_SETUP.md](./CLOUDFLARE_PAGES_SETUP.md)** - Cloudflare + Resend setup
+- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Design tokens and styling guide
+- **[COMPONENTS_GUIDE.md](./COMPONENTS_GUIDE.md)** - Component documentation
+
+---
+
+## 🔗 Useful Links
+
+- **Next.js Docs:** https://nextjs.org/docs
+- **Cloudflare Pages:** https://developers.cloudflare.com/pages/
+- **Resend Docs:** https://resend.com/docs
+- **Cloudflare Turnstile:** https://developers.cloudflare.com/turnstile/
+
+---
+
+## 🐛 Troubleshooting
+
+### Contact form not working
+1. Check environment variables in Cloudflare Pages
+2. View Cloudflare Pages Functions logs
+3. Verify Resend API key is valid
+4. Check Turnstile widget configuration
+
+### www not redirecting
+1. Verify `public/_redirects` file exists
+2. Check DNS: www CNAME → incany.be
+3. Purge Cloudflare cache
+
+### Security headers missing
+1. Verify `public/_headers` file in build output
+2. Purge Cloudflare cache
+3. Test: `curl -I https://incany.be`
+
+See [PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md) → Troubleshooting for more.
+
+---
+
+## 📝 License
+
+Private project for Café In Cany.
+
+---
+
+## 🤝 Contributing
+
+This is a private project. For issues or improvements, contact the development team.
+
+---
+
+**Built with ❤️ for Café In Cany**

@@ -1,0 +1,15 @@
+# Cloudflare Pages Redirects
+# Redirect www to apex domain (only after DNS configured in Cloudflare)
+
+# NOTE: These redirects only apply when:
+# 1. Domain is connected to Cloudflare Pages project
+# 2. DNS records are configured:
+#    - incany.be A/AAAA records pointing to Cloudflare Pages
+#    - www.incany.be CNAME pointing to incany.be
+# 3. Custom domain is verified in Cloudflare Pages dashboard
+
+# Redirect www to non-www (apex domain)
+https://www.incany.be/* https://incany.be/:splat 301!
+
+# This redirect will NOT cause issues with preview deployments
+# because preview URLs (*.pages.dev) don't match the www.incany.be pattern

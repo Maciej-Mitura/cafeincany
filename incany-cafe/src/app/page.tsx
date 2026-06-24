@@ -9,10 +9,12 @@ import Gallery from '@/components/Gallery';
 import Location from '@/components/Location';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import StructuredData from '@/components/StructuredData';
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <Navbar />
       
       <main>
