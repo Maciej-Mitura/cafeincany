@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--surface)] border-t border-[var(--border)]">
+    <footer className="bg-surface border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -99,11 +99,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[var(--border)] py-6">
+        <div className="border-t border-border py-6">
           <div className="text-center">
             {/* Copyright */}
-            <p className="text-sm text-[var(--muted)]">
-              © {currentYear} {cafeInfo.name}. All rights reserved.
+            <p className="text-sm text-muted">
+              © {currentYear} {cafeInfo.name}. Alle rechten voorbehouden.
             </p>
           </div>
         </div>

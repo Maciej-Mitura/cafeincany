@@ -20,7 +20,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-[var(--background)] pt-20 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-background pt-20 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
@@ -76,25 +76,18 @@ export default function Hero() {
             {/* Main image container */}
             <div className="relative w-full h-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 group-hover:scale-[1.02]" style={{ boxShadow: "var(--shadow-lg)" }}>
               {/* Café Image */}
-              <Image
-                src="/icon.jpg"
-                alt="Café In Cany"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              <Image src="/icon.jpg" alt="Café In Cany" fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 50vw" />
 
               {/* Corner light effects - all four corners */}
               {/* Bottom-left corner - light glow */}
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-white/40 via-white/20 to-transparent pointer-events-none" />
-              
+
               {/* Bottom-right corner - light glow */}
               <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-white/40 via-white/20 to-transparent pointer-events-none" />
-              
+
               {/* Top-left corner - light glow */}
               <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-white/40 via-white/20 to-transparent pointer-events-none" />
-              
+
               {/* Top-right corner - light glow */}
               <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-white/40 via-white/20 to-transparent pointer-events-none" />
             </div>

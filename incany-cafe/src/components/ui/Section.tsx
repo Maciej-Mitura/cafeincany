@@ -18,9 +18,9 @@ export default function Section({
   containerWidth = 'default',
 }: SectionProps) {
   const backgroundStyles: Record<string, string> = {
-    default: 'bg-[var(--background)]',
-    surface: 'bg-[var(--surface)]',
-    elevated: 'bg-[var(--surface-elevated)]',
+    default: 'bg-background',
+    surface: 'bg-surface',
+    elevated: 'bg-surface-elevated',
   };
 
   const spacingStyles: Record<string, string> = {

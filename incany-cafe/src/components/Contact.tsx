@@ -141,7 +141,10 @@ export default function Contact() {
         }),
       });
 
-      const data = (await response.json()) as { success?: boolean; error?: string };
+      const data = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
 
       if (!response.ok) {
         // Handle rate limiting
