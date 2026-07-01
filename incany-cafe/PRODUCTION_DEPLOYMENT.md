@@ -41,11 +41,11 @@
 2. Navigate to **Workers & Pages** → **Create application** → **Pages**
 3. Connect to your Git repository (GitHub, GitLab, etc.)
 4. **Build settings:**
-   - Framework preset: **Next.js**
+   - Framework preset: **None** (static export)
    - Build command: `npm run build`
-   - Build output directory: `.next`
+   - Build output directory: `out`
    - Root directory: `incany-cafe` (if monorepo, otherwise leave blank)
-   - Node version: **18.x or higher**
+   - Node version: **20** or higher
 5. Click **Save and Deploy**
 
 ### Step 2: Configure Environment Variables

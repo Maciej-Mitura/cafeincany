@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview:pages": "npm run build && wrangler pages dev out",
+    "dev:pages": "npm run preview:pages"
   },
   "dependencies": {
     "next": "16.1.6",

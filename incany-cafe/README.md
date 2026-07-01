@@ -45,6 +45,13 @@
    ```bash
    npm run build
    ```
+   Output is written to `out/` (static export).
+
+5. **Test contact form locally (full stack):**
+   ```bash
+   npm run preview:pages
+   ```
+   See [CLOUDFLARE_PAGES_DEPLOYMENT.md](./CLOUDFLARE_PAGES_DEPLOYMENT.md).
 
 ---
 
@@ -113,45 +120,46 @@ See [PRIVACY_IMPLEMENTATION_SUMMARY.md](./PRIVACY_IMPLEMENTATION_SUMMARY.md) for
 ```
 User → Contact.tsx (frontend)
   ↓ POST /api/contact
-  ↓ Cloudflare Pages Function (src/functions/api/contact.ts)
+  ↓ Cloudflare Pages Function (functions/api/contact.ts)
   ↓ Turnstile verification + validation + sanitization
   ↓ Resend API
   ↓ Email to info@incany.be
 ```
 
-**Local development:** Uses Next.js API route (`src/app/api/contact/route.ts`)  
-**Production:** Uses Cloudflare Pages Function (`src/functions/api/contact.ts`)
+**Local UI:** `npm run dev` (contact POST not available)  
+**Local E2E:** `npm run preview:pages` (static `out/` + Pages Function)
 
-See [CLOUDFLARE_PAGES_SETUP.md](./CLOUDFLARE_PAGES_SETUP.md) for setup.
+See [CLOUDFLARE_PAGES_DEPLOYMENT.md](./CLOUDFLARE_PAGES_DEPLOYMENT.md) for setup.
 
 ---
 
 ## 🚢 Deployment
 
-**Platform:** Cloudflare Pages  
-**Deployment:** Auto-deploy from Git (main branch)
+**Platform:** Cloudflare Pages (static export) + Pages Functions  
+**Guide:** **[CLOUDFLARE_PAGES_DEPLOYMENT.md](./CLOUDFLARE_PAGES_DEPLOYMENT.md)**
+
+| Dashboard setting | Value |
+|-------------------|--------|
+| Root directory | `incany-cafe` |
+| Build command | `npm run build` |
+| Build output | `out` |
+| Node version | `20` |
+
+### Local workflows
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Frontend UI only (contact form POST will not work) |
+| `npm run preview:pages` | Static `out/` + `POST /api/contact` via Wrangler |
 
 ### Quick Deploy
 
-1. Push to Git (GitHub, GitLab, etc.)
-2. Connect repository to Cloudflare Pages
-3. Set environment variables in Cloudflare dashboard:
-   - `RESEND_API_KEY`
-   - `TURNSTILE_SECRET_KEY`
-   - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
-4. Deploy!
+1. Push to Git
+2. Connect repository in Cloudflare Pages (root: `incany-cafe`)
+3. Set environment variables (see deployment guide)
+4. Deploy
 
-### Full Production Setup
-
-See **[PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md)** for:
-- Cloudflare Pages configuration
-- Custom domain setup (incany.be)
-- SSL/TLS settings
-- WAF and rate limiting rules
-- DNS configuration
-- Security hardening
-- Post-deployment verification
-- Monitoring setup
+See **[CLOUDFLARE_PAGES_DEPLOYMENT.md](./CLOUDFLARE_PAGES_DEPLOYMENT.md)** for env vars, custom domains, function logs, and MX record warning.
 
 ---
 

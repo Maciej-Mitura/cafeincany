@@ -1,3 +1,9 @@
+/**
+ * Cloudflare Pages Function — production handler for POST /api/contact
+ *
+ * Deployed from: functions/api/contact.ts (project root)
+ * Local E2E test: npm run preview:pages (see CLOUDFLARE_PAGES_DEPLOYMENT.md)
+ */
 import { Resend } from "resend";
 
 export interface Env {
@@ -9,7 +15,7 @@ type ContactBody = {
   name: string;
   email: string;
   message: string;
-  website?: string; // Honeypot field
+  website?: string;
   turnstileToken?: string;
 };
 
@@ -18,7 +24,6 @@ interface TurnstileVerifyResponse {
   "error-codes"?: string[];
 }
 
-// HTML entity escaping for email template
 function escapeHtml(text: string): string {
   const map: Record<string, string> = {
     "&": "&amp;",
@@ -30,7 +35,6 @@ function escapeHtml(text: string): string {
   return text.replace(/[&<>"']/g, (char) => map[char] || char);
 }
 
-// Verify Turnstile token
 async function verifyTurnstile(token: string, ip: string, secretKey: string): Promise<boolean> {
   try {
     const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -47,7 +51,7 @@ async function verifyTurnstile(token: string, ip: string, secretKey: string): Pr
 
     const data = (await response.json()) as TurnstileVerifyResponse;
     return data.success;
-  } catch (error) {
+  } catch {
     console.error("Turnstile verification failed");
     return false;
   }
@@ -55,11 +59,9 @@ async function verifyTurnstile(token: string, ip: string, secretKey: string): Pr
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   try {
-    // Parse request body
     const body = (await request.json()) as Partial<ContactBody>;
     const { name, email, message, website, turnstileToken } = body;
 
-    // Honeypot check - reject if filled
     if (website) {
       return new Response(JSON.stringify({ error: "Ongeldig verzoek" }), {
         status: 400,
@@ -67,7 +69,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       });
     }
 
-    // Validate required fields
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: "Alle velden zijn verplicht" }), {
         status: 400,
@@ -75,7 +76,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       });
     }
 
-    // Validate field lengths and formats
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
     const trimmedMessage = message.trim();
@@ -102,7 +102,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       });
     }
 
-    // Verify Turnstile token
     if (!turnstileToken) {
       return new Response(JSON.stringify({ error: "Veiligheidscontrole is verplicht" }), {
         status: 403,
@@ -110,7 +109,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       });
     }
 
-    // Get visitor IP from Cloudflare
     const ip = request.headers.get("CF-Connecting-IP") || "0.0.0.0";
 
     const isTurnstileValid = await verifyTurnstile(turnstileToken, ip, env.TURNSTILE_SECRET_KEY);
@@ -123,7 +121,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
     const resend = new Resend(env.RESEND_API_KEY);
 
-    // Get current date and time
     const now = new Date();
     const dateStr = now.toLocaleDateString("nl-BE", {
       day: "2-digit",
@@ -135,7 +132,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       minute: "2-digit",
     });
 
-    // Escape HTML in user inputs
     const safeName = escapeHtml(trimmedName);
     const safeEmail = escapeHtml(trimmedEmail);
     const safeMessage = escapeHtml(trimmedMessage).replace(/\n/g, "<br/>");
@@ -226,7 +222,6 @@ Verzonden op: ${dateStr} om ${timeStr}
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    // Log error without exposing details
     if (err instanceof SyntaxError) {
       return new Response(JSON.stringify({ error: "Ongeldig verzoek" }), {
         status: 400,
@@ -242,7 +237,6 @@ Verzonden op: ${dateStr} om ${timeStr}
   }
 };
 
-// Handle unsupported methods
 export const onRequestGet: PagesFunction = async () => {
   return new Response(JSON.stringify({ error: "Method niet toegestaan" }), {
     status: 405,
