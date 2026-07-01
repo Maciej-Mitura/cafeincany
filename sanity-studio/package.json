@@ -1,0 +1,27 @@
+{
+  "name": "incany-sanity-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity Studio voor evenementenbeheer — Café In Cany",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "keywords": [
+    "sanity",
+    "cafe-in-cany"
+  ],
+  "dependencies": {
+    "@sanity/vision": "^3.99.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.99.0",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.24",
+    "typescript": "^5.9.2"
+  }
+}

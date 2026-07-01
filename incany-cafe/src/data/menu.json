@@ -1,142 +1,896 @@
 {
-  "categories": [
-    "Alles",
-    "Van 't Vat",
-    "Speciaalbieren",
-    "Gedistilleerd",
-    "Hapjes"
-  ],
+  "categories": ["Alles", "Frisdrank", "Bier", "Bier NA", "Wijn en bubbels", "Apero", "Sterke dranken", "Shots", "Likeuren", "Cocktails", "Cocktails NA", "Warme dranken", "Fingerfood", "Kleine honger", "Dessert"],
   "items": [
     {
-      "name": "Jupiler",
-      "description": "Het klassiekekelderverseBelgischepils",
-      "price": "€2.80",
-      "category": "Van 't Vat",
-      "dietary": ["25cl"]
+      "name": "Cola/Cola Zero",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Duvel",
-      "description": "Stevig blond bier met rijke smaak",
-      "price": "€4.50",
-      "category": "Van 't Vat",
-      "dietary": ["33cl"]
+      "name": "Fanta/Sprite",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Stella Artois",
-      "description": "Premium pils, perfect getapt",
-      "price": "€3.20",
-      "category": "Van 't Vat",
-      "dietary": ["25cl"]
+      "name": "Plat/Bruis water",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Grimbergen Blond",
-      "description": "Vol en fruitig abdijbier",
-      "price": "€4.20",
-      "category": "Van 't Vat",
-      "dietary": ["33cl"]
+      "name": "Tonissteiner Orange/Citroen/Vruchtenkorf",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Leffe Bruin",
-      "description": "Donker abdijbier met karameltoetsen",
-      "price": "€4.20",
-      "category": "Van 't Vat",
-      "dietary": ["33cl"]
+      "name": "Sinaassap/Appelsap/Ace",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Westmalle Tripel",
-      "description": "Trappistenbier met complexe smaak",
-      "price": "€5.20",
-      "category": "Speciaalbieren",
-      "dietary": ["33cl"]
+      "name": "Ice tea/Fuze tea peach",
+      "description": "",
+      "price": "€3.00",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Rochefort 8",
-      "description": "Zwaar en kruidig trappistenbier",
-      "price": "€5.80",
-      "category": "Speciaalbieren",
-      "dietary": ["33cl"]
+      "name": "Fristi/Cecemel",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Karmeliet Tripel",
-      "description": "Complex tripel volgens eeuwenoude receptuur",
-      "price": "€5.00",
-      "category": "Speciaalbieren",
-      "dietary": ["33cl"]
+      "name": "Twist & Drink (groen, roze, blauw)",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "La Chouffe",
-      "description": "Fruitig blond uit de Ardennen",
-      "price": "€4.80",
-      "category": "Speciaalbieren",
-      "dietary": ["33cl"]
+      "name": "Schweppes/Schweppes Agrum",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Whisky Selection",
-      "description": "Jameson, Jack Daniels, of onze huisselectie",
-      "price": "€6.50",
-      "category": "Gedistilleerd",
-      "dietary": ["4cl"]
+      "name": "Tonic Bliss (tonic water, pink, lemon)",
+      "description": "",
+      "price": "€2.50",
+      "category": "Frisdrank",
+      "dietary": []
     },
     {
-      "name": "Rum (Bacardi/Havana Club)",
-      "description": "Witte of bruine rum",
-      "price": "€5.50",
-      "category": "Gedistilleerd",
-      "dietary": ["4cl"]
-    },
-    {
-      "name": "Gin & Tonic",
-      "description": "Premium gin met Fever-Tree tonic",
-      "price": "€8.50",
-      "category": "Gedistilleerd",
-      "dietary": ["Served"]
-    },
-    {
-      "name": "Jenever",
-      "description": "Oude of jonge jenever",
-      "price": "€4.50",
-      "category": "Gedistilleerd",
-      "dietary": ["4cl"]
-    },
-    {
-      "name": "Elixir d'Anvers",
-      "description": "Belgische kruidenbitter",
-      "price": "€4.00",
-      "category": "Gedistilleerd",
-      "dietary": ["4cl"]
-    },
-    {
-      "name": "Bitterballen (8st)",
-      "description": "Krokante bitterballen met mosterd",
-      "price": "€7.50",
-      "category": "Hapjes",
-      "dietary": ["Huisgemaakt"]
-    },
-    {
-      "name": "Kaasplankje",
-      "description": "Belgische kazen met noten en confituur",
-      "price": "€12.50",
-      "category": "Hapjes",
-      "dietary": ["Vegetarisch"]
-    },
-    {
-      "name": "Charcuterie",
-      "description": "Vleeswaren met pickles en mosterd",
-      "price": "€14.00",
-      "category": "Hapjes"
-    },
-    {
-      "name": "Kroketten (4st)",
-      "description": "Vlees- of garnaalkroketten",
-      "price": "€8.50",
-      "category": "Hapjes"
-    },
-    {
-      "name": "Borrelnootjes",
-      "description": "Geroosterde nootjes",
+      "name": "Redbull",
+      "description": "",
       "price": "€3.50",
-      "category": "Hapjes",
-      "dietary": ["Vegan"]
+      "category": "Frisdrank",
+      "dietary": []
+    },
+    {
+      "name": "Stella",
+      "description": "",
+      "price": "€2.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Halve Liter Stella",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "1 meter Stella (11 pintjes)",
+      "description": "",
+      "price": "€25.00",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Stella fles/Jupiler fles",
+      "description": "",
+      "price": "€2.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Carlsberg",
+      "description": "",
+      "price": "€3.00",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Rodenbach",
+      "description": "",
+      "price": "€3.00",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Kriek Max",
+      "description": "",
+      "price": "€3.00",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Duvel/Omer",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Triple Karmeliet",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Kasteelbier Blond/Bruin/Rouge",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "St Bernardus Triple/Abt 12",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Cornet Gold blond/Strong blond",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Brugse Zot",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Leffe Blond/Bruin",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Warka Strong (0.5L)",
+      "description": "",
+      "price": "€5.00",
+      "category": "Bier",
+      "dietary": []
+    },
+    {
+      "name": "Stella 0,0%",
+      "description": "",
+      "price": "€2.50",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Carlsberg 0,0%",
+      "description": "",
+      "price": "€3.00",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Kasteel Rouge 0,0%",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Sportzot 0,0%",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Triple Karmeliet 0,0%",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Cornet Oaked 0,0%",
+      "description": "",
+      "price": "€4.50",
+      "category": "Bier NA",
+      "dietary": []
+    },
+    {
+      "name": "Glas witte wijn (droog/half droog/zoet)",
+      "description": "",
+      "price": "€4.50",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Glas rosé wijn",
+      "description": "",
+      "price": "€4.50",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Glas rode wijn",
+      "description": "",
+      "price": "€4.50",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Fles wijn (wit, rosé, rood)",
+      "description": "",
+      "price": "€20.00",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Glaasje bubbels",
+      "description": "",
+      "price": "€5.00",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Fles bubbels",
+      "description": "",
+      "price": "€25.00",
+      "category": "Wijn en bubbels",
+      "dietary": []
+    },
+    {
+      "name": "Kirr",
+      "description": "",
+      "price": "€4.50",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Kirr Royal",
+      "description": "",
+      "price": "€5.50",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Martini Bellini",
+      "description": "",
+      "price": "€6.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Aperol",
+      "description": "",
+      "price": "€9.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Passoa Orange",
+      "description": "",
+      "price": "€8.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Pisang Orange",
+      "description": "",
+      "price": "€8.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Picon \"vin blanc\"",
+      "description": "",
+      "price": "€8.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Ricard",
+      "description": "",
+      "price": "€8.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Apero \"In Cany - Sunset layer\"",
+      "description": "",
+      "price": "€9.00",
+      "category": "Apero",
+      "dietary": []
+    },
+    {
+      "name": "Gordon Pink",
+      "description": "Gin + supplement frisdrank",
+      "price": "€6.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bombay",
+      "description": "Gin + supplement frisdrank",
+      "price": "€7.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bulldog",
+      "description": "Gin + supplement frisdrank",
+      "price": "€8.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Gin Mare",
+      "description": "Gin + supplement frisdrank",
+      "price": "€9.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Eristoff white/red",
+      "description": "Vodka + supplement frisdrank",
+      "price": "€7.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Zubrowka Bison grass",
+      "description": "Vodka + supplement frisdrank",
+      "price": "€7.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bocian white",
+      "description": "Vodka + supplement frisdrank",
+      "price": "€7.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bacardi white",
+      "description": "Rum + supplement frisdrank",
+      "price": "€7.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bacardi 4 jaar",
+      "description": "Rum + supplement frisdrank",
+      "price": "€9.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Captain Morgan",
+      "description": "Rum + supplement frisdrank",
+      "price": "€7.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Don papa (mascara)",
+      "description": "Rum + supplement frisdrank",
+      "price": "€9.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Jack Daniels",
+      "description": "Whiskey + supplement frisdrank",
+      "price": "€8.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Grant's",
+      "description": "Whiskey + supplement frisdrank",
+      "price": "€8.00",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Johnny Walker",
+      "description": "Whiskey + supplement frisdrank",
+      "price": "€7.50",
+      "category": "Sterke dranken",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Eristoff (white, red, passion, pink)",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Mad dog (framboos siroop, vodka, tabasco)",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Jenever (natuurlijk, passiervrcht appel, cactus, chocolade, citroen, vanille)",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Metaxa 7*",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Limoncello",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Jägermeister",
+      "description": "",
+      "price": "€4.50",
+      "category": "Shots",
+      "dietary": ["30ml"]
+    },
+    {
+      "name": "Sheridan",
+      "description": "",
+      "price": "€6.00",
+      "category": "Likeuren",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Bailey's",
+      "description": "",
+      "price": "€6.00",
+      "category": "Likeuren",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Amaretto",
+      "description": "",
+      "price": "€6.00",
+      "category": "Likeuren",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Advocaat",
+      "description": "",
+      "price": "€6.00",
+      "category": "Likeuren",
+      "dietary": ["50ml"]
+    },
+    {
+      "name": "Mojito",
+      "description": "",
+      "price": "€10.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Long Island Ice Tea",
+      "description": "",
+      "price": "€12.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Drink for real men",
+      "description": "",
+      "price": "€12.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Drink for a sweet woman",
+      "description": "",
+      "price": "€12.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "The Cany Rainbow",
+      "description": "",
+      "price": "€10.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Dark Sunset",
+      "description": "",
+      "price": "€10.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Salitos",
+      "description": "",
+      "price": "€5.00",
+      "category": "Cocktails",
+      "dietary": []
+    },
+    {
+      "name": "Apero \"No Cany - Sunset Layer\" 0,0%",
+      "description": "",
+      "price": "€9.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Aperol 0,0%",
+      "description": "",
+      "price": "€9.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Gin Gordon 0,0% (met fever tree tonic)",
+      "description": "",
+      "price": "€9.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Gin Tanqueray 0,0% (met fever tree tonic)",
+      "description": "",
+      "price": "€9.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Captain Morgan 0,0% (met cola)",
+      "description": "",
+      "price": "€9.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Virgin mojito",
+      "description": "",
+      "price": "€10.00",
+      "category": "Cocktails NA",
+      "dietary": []
+    },
+    {
+      "name": "Koffie/Deca",
+      "description": "",
+      "price": "€2.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Cappucino (melkschuim)",
+      "description": "",
+      "price": "€3.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Latte macchiato",
+      "description": "",
+      "price": "€3.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Espresso",
+      "description": "",
+      "price": "€2.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Verwenkoffie",
+      "description": "",
+      "price": "€7.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Thee (citroen, groen, kamille, munt, rode vruchten, earl grey, rozenbottel)",
+      "description": "",
+      "price": "€2.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Warme Chocomelk",
+      "description": "",
+      "price": "€3.00",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Warme chocomelk met slagroom",
+      "description": "",
+      "price": "€3.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Irish coffee (whiskey)",
+      "description": "",
+      "price": "€8.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "French coffee (cointreau)",
+      "description": "",
+      "price": "€8.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Italian coffee (amaretto)",
+      "description": "",
+      "price": "€8.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Baileys coffee (baileys)",
+      "description": "",
+      "price": "€8.50",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Chocoretto (warme choco met amaretto)",
+      "description": "",
+      "price": "€8.00",
+      "category": "Warme dranken",
+      "dietary": []
+    },
+    {
+      "name": "Apero bordje (kaas & salami)",
+      "description": "",
+      "price": "€8.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Apero bordje trio (kaas, salami, olijven)",
+      "description": "",
+      "price": "€10.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Apero bordje \"Deluxe\"",
+      "description": "Kaas, salami, olijven, pharmaham, witte pens, pate, tapenade met dipsticks",
+      "price": "€15.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Croque to share (kaas + ham)",
+      "description": "",
+      "price": "€5.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Croque to share (groene pesto, kaas + zongedroogde tomaat)",
+      "description": "",
+      "price": "€6.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Croque to share (zalm met kruidenkaas)",
+      "description": "",
+      "price": "€7.50",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Mix warme snacks (8, 16 of 24 stuks)",
+      "description": "",
+      "price": "€6.00 / 12€ / 18€",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Artisanale rundsbitterballen ",
+      "description": "8st",
+      "price": "€9.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Hertensstoof bitterballen (enkel tijdens de winter)",
+      "description": "8st",
+      "price": "€9.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Artisanale vol au vent balletjes",
+      "description": "8st",
+      "price": "€9.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Kaasballetjes 3 kazen",
+      "description": "8st",
+      "price": "€9.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Aspergeballetjes met zalm",
+      "description": "8st",
+      "price": "€11.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Artisanale garnaalballetjes",
+      "description": "8st",
+      "price": "€12.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Kippenboutjes ",
+      "description": "8st",
+      "price": "€7.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Mini Borek kip of spinazie & feta ",
+      "description": "(8 stuks)",
+      "price": "",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+
+    {
+      "name": "Garlic bread (3 of 6 stuks)",
+      "description": "",
+      "price": "€2.50 / 5,00€",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+    {
+      "name": "Portie potatoes wedges (200gr)",
+      "description": "",
+      "price": "€5.00",
+      "category": "Fingerfood",
+      "dietary": []
+    },
+
+    {
+      "name": "Spaghetti (bolognese of carbonara)",
+      "description": "",
+      "price": "€10.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Verse soep van de dag met half stokbrood",
+      "description": "van oktober tot maart",
+      "price": "€7.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Stutte met verse gekapt of een schelle paté",
+      "description": "van oktober tot maart",
+      "price": "€7.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Pizza baguette (ham/kaas of veggie)",
+      "description": "",
+      "price": "€5.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Stuk pizza margherita",
+      "description": "",
+      "price": "€5.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Stuk pizza salami",
+      "description": "",
+      "price": "€6.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "Stuk pizza proscuitto",
+      "description": "",
+      "price": "€6.00",
+      "category": "Kleine honger",
+      "dietary": []
+    },
+    {
+      "name": "3 bollen vanille ijs met chocoladesaus en slagroom",
+      "description": "",
+      "price": "€8.00",
+      "category": "Dessert",
+      "dietary": []
+    },
+    {
+      "name": "3 bollen vanille ijs met aardbeiensaus en slagroom",
+      "description": "",
+      "price": "€8.00",
+      "category": "Dessert",
+      "dietary": []
+    },
+    {
+      "name": "Kinderijsje potje (Brésilienne of fraamboos)",
+      "description": "",
+      "price": "€4.00",
+      "category": "Dessert",
+      "dietary": []
+    },
+    {
+      "name": "Pannenkoeken met bloem- of bruine suiker (2 stuks)",
+      "description": "",
+      "price": "€5.00",
+      "category": "Dessert",
+      "dietary": []
+    },
+    {
+      "name": "Pannenkoeken met chocoladesaus (2 stuks) met bolletje vanille ijs",
+      "description": "",
+      "price": "€8.00",
+      "category": "Dessert",
+      "dietary": []
+    },
+    {
+      "name": "Stuk taart van het moment",
+      "description": "",
+      "price": "€5.00",
+      "category": "Dessert",
+      "dietary": []
     }
   ]
 }

@@ -17,7 +17,7 @@ const careAboutItems = [
   },
   {
     title: "Ons Dorp",
-    description: "Moorslede is niet zomaar waar we werken—het is thuis. We organiseren themavonden, draaien goede muziek, en iedereen is welkom aan de toog.",
+    description: "Moorslede is niet zomaar waar we werken - het is thuis. We organiseren themavonden, draaien goede muziek, en iedereen is welkom aan de toog.",
   },
 ];
 
@@ -33,8 +33,8 @@ export default function About() {
         <div className="space-y-12">
           {/* Story */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-heading text-accent">Ons Verhaal</h3>
-            <div className="tet-text-secondary leading-relaxed space-y-4">
+            <h3 className="text-2xl font-heading text-accent ">Ons Verhaal</h3>
+            <div className="tet-text-secondary leading-relaxed space-y-4 pt-4">
               <p>Café In Cany opende haar deuren als een échte bruine kroeg waar gezelligheid voorop staat. We wilden geen trendy zaak, maar een authentiek café waar je welkom bent zoals je bent.</p>
               <p>Wat begon met de droom van een eigen stamkroeg is uitgegroeid tot deze warme plek in het hart van Moorslede. Met goede pinten, leuke avonden, en altijd die typische bruine kroeg sfeer waar je thuis komt.</p>
               <p>Vandaag zijn we trots deel uit te maken van dit dorp. Elk getapt pintje, elke DJ-avond, en elke lach aan de toog is onze manier om te zeggen: welkom thuis.</p>
@@ -43,15 +43,12 @@ export default function About() {
 
           {/* What We Care About */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-heading text-accent">Waar We Voor Staan</h3>
+            <h3 className="text-2xl font-heading text-accent pb-4">Waar We Voor Staan</h3>
             <div className="space-y-6">
               {careAboutItems.map((item, index) => (
-                <div key={index} className="flex gap-4 group cursor-default">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[var(--accent)]/10 rounded-full flex items-center justify-center border border-[var(--accent-muted)] group-hover:bg-[var(--accent)]/20 transition-all duration-300">
-                    <div className="w-2 h-2 bg-[var(--accent)] rounded-full" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-[var(--text)] mb-1 group-hover:text-[var(--accent)] transition-colors duration-300">{item.title}</h4>
+                <div key={index} className="pl-6 border-l-3 border-[var(--accent)] group cursor-default hover:border-[var(--accent-hover)] transition-all duration-300">
+                  <div className="py-2">
+                    <h4 className="text-lg font-semibold text-[var(--text)] mb-2 group-hover:text-[var(--accent)] transition-colors duration-300">{item.title}</h4>
                     <p className="text-[var(--text-secondary)] leading-relaxed">{item.description}</p>
                   </div>
                 </div>

@@ -258,6 +258,31 @@ a:hover {
   opacity: 0;
 }
 
+/* Event detail modal — native <dialog> */
+.event-detail-dialog {
+  margin: auto;
+  max-width: 42rem;
+  width: calc(100% - 2rem);
+  max-height: 90dvh;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.event-detail-dialog::backdrop {
+  background: rgba(12, 10, 8, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.event-detail-dialog__panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
 /* Hide Next.js development indicator */
 #nextjs__container,
 #__next-build-watcher,
