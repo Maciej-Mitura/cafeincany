@@ -1,33 +1,33 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 const CATEGORY_OPTIONS = [
-  { title: 'DJ Night', value: 'DJ Night' },
-  { title: 'Theme Night', value: 'Theme Night' },
-  { title: 'Live Muziek', value: 'Live Muziek' },
-  { title: 'Quiz', value: 'Quiz' },
-  { title: 'Promotie', value: 'Promotie' },
-  { title: 'Sport', value: 'Sport' },
-  { title: 'Overig', value: 'Overig' },
-] as const;
+  {title: 'DJ Night', value: 'DJ Night'},
+  {title: 'Theme Night', value: 'Theme Night'},
+  {title: 'Live Muziek', value: 'Live Muziek'},
+  {title: 'Quiz', value: 'Quiz'},
+  {title: 'Promotie', value: 'Promotie'},
+  {title: 'Sport', value: 'Sport'},
+  {title: 'Overig', value: 'Overig'},
+] as const
 
-const SHORT_DESCRIPTION_MAX = 280;
+const SHORT_DESCRIPTION_MAX = 280
 
 type EventDocument = {
-  startDateTime?: string;
-  endDateTime?: string;
-  coverImage?: unknown;
-};
+  startDateTime?: string
+  endDateTime?: string
+  coverImage?: unknown
+}
 
 export const event = defineType({
   name: 'event',
   title: 'Evenement',
   type: 'document',
   groups: [
-    { name: 'basis', title: 'Basisinformatie', default: true },
-    { name: 'timing', title: 'Timing en zichtbaarheid' },
-    { name: 'media', title: 'Media' },
-    { name: 'extra', title: 'Extra informatie' },
-    { name: 'recap', title: 'Terugblik' },
+    {name: 'basis', title: 'Basisinformatie', default: true},
+    {name: 'timing', title: 'Timing en zichtbaarheid'},
+    {name: 'media', title: 'Media'},
+    {name: 'extra', title: 'Extra informatie'},
+    {name: 'recap', title: 'Terugblik'},
   ],
   fields: [
     defineField({
@@ -43,7 +43,8 @@ export const event = defineType({
       title: 'URL-naam',
       type: 'slug',
       group: 'basis',
-      description: 'Wordt automatisch voorgesteld op basis van de titel. Laat staan tenzij je een korte, vaste link nodig hebt.',
+      description:
+        'Wordt automatisch voorgesteld op basis van de titel. Laat staan tenzij je een korte, vaste link nodig hebt.',
       options: {
         source: 'title',
         maxLength: 96,
@@ -60,7 +61,9 @@ export const event = defineType({
       validation: (Rule) =>
         Rule.required()
           .max(SHORT_DESCRIPTION_MAX)
-          .error(`De korte omschrijving is verplicht en mag maximaal ${SHORT_DESCRIPTION_MAX} tekens bevatten.`),
+          .error(
+            `De korte omschrijving is verplicht en mag maximaal ${SHORT_DESCRIPTION_MAX} tekens bevatten.`,
+          ),
     }),
     defineField({
       name: 'category',
@@ -102,18 +105,18 @@ export const event = defineType({
         Rule.required()
           .error('Vul een einddatum en -tijd in.')
           .custom((endDateTime, context) => {
-            const document = context.document as EventDocument | undefined;
-            const startDateTime = document?.startDateTime;
+            const document = context.document as EventDocument | undefined
+            const startDateTime = document?.startDateTime
 
             if (!startDateTime || !endDateTime) {
-              return true;
+              return true
             }
 
             if (new Date(endDateTime) <= new Date(startDateTime)) {
-              return 'De einddatum moet na de startdatum liggen.';
+              return 'De einddatum moet na de startdatum liggen.'
             }
 
-            return true;
+            return true
           }),
     }),
     defineField({
@@ -130,7 +133,8 @@ export const event = defineType({
       title: 'Uitgelicht',
       type: 'boolean',
       group: 'timing',
-      description: 'Markeer hoogstens één belangrijk evenement met het label “Uitgelicht” op de website.',
+      description:
+        'Markeer hoogstens één belangrijk evenement met het label “Uitgelicht” op de website.',
       initialValue: false,
     }),
     defineField({
@@ -138,7 +142,8 @@ export const event = defineType({
       title: 'Coverafbeelding',
       type: 'image',
       group: 'media',
-      description: 'Hoofdafbeelding voor de kaart en het detailvenster. Gebruik een horizontale foto in hoge kwaliteit.',
+      description:
+        'Hoofdafbeelding voor de kaart en het detailvenster. Gebruik een horizontale foto in hoge kwaliteit.',
       options: {
         hotspot: true,
       },
@@ -154,13 +159,13 @@ export const event = defineType({
         Rule.required()
           .error('Alt-tekst is verplicht voor de coverafbeelding.')
           .custom((alt, context) => {
-            const document = context.document as EventDocument | undefined;
+            const document = context.document as EventDocument | undefined
 
             if (document?.coverImage && !alt?.trim()) {
-              return 'Alt-tekst is verplicht wanneer er een coverafbeelding is.';
+              return 'Alt-tekst is verplicht wanneer er een coverafbeelding is.'
             }
 
-            return true;
+            return true
           }),
     }),
     defineField({
@@ -172,7 +177,7 @@ export const event = defineType({
       of: [
         defineArrayMember({
           type: 'image',
-          options: { hotspot: true },
+          options: {hotspot: true},
           fields: [
             defineField({
               name: 'alt',
@@ -191,8 +196,9 @@ export const event = defineType({
       title: 'Volledige omschrijving',
       type: 'array',
       group: 'extra',
-      description: 'Uitgebreide tekst in het detailvenster op de website. Optioneel — de korte omschrijving wordt gebruikt als dit leeg is.',
-      of: [{ type: 'block' }],
+      description:
+        'Uitgebreide tekst in het detailvenster op de website. Optioneel — de korte omschrijving wordt gebruikt als dit leeg is.',
+      of: [{type: 'block'}],
     }),
     defineField({
       name: 'videoUrl',
@@ -223,8 +229,9 @@ export const event = defineType({
       title: 'Terugbliktekst',
       type: 'array',
       group: 'recap',
-      description: 'Tekst over hoe het evenement was. Alleen zichtbaar op de website als “Terugblik publiceren” aan staat en het evenement voorbij is.',
-      of: [{ type: 'block' }],
+      description:
+        'Tekst over hoe het evenement was. Alleen zichtbaar op de website als “Terugblik publiceren” aan staat en het evenement voorbij is.',
+      of: [{type: 'block'}],
     }),
     defineField({
       name: 'recapPublished',
@@ -243,34 +250,34 @@ export const event = defineType({
       published: 'published',
       media: 'coverImage',
     },
-    prepare({ title, category, startDateTime, published, media }) {
+    prepare({title, category, startDateTime, published, media}) {
       const formattedDate = startDateTime
         ? new Date(startDateTime).toLocaleString('nl-BE', {
             dateStyle: 'medium',
             timeStyle: 'short',
             timeZone: 'Europe/Brussels',
           })
-        : 'Geen startdatum';
+        : 'Geen startdatum'
 
-      const statusLabel = published === false ? ' · Concept' : '';
+      const statusLabel = published === false ? ' · Concept' : ''
 
       return {
         title: title || 'Naamloos evenement',
         subtitle: `${category || 'Geen categorie'} · ${formattedDate}${statusLabel}`,
         media,
-      };
+      }
     },
   },
   orderings: [
     {
       title: 'Startdatum (nieuwste eerst)',
       name: 'startDateTimeDesc',
-      by: [{ field: 'startDateTime', direction: 'desc' }],
+      by: [{field: 'startDateTime', direction: 'desc'}],
     },
     {
       title: 'Startdatum (oudste eerst)',
       name: 'startDateTimeAsc',
-      by: [{ field: 'startDateTime', direction: 'asc' }],
+      by: [{field: 'startDateTime', direction: 'asc'}],
     },
   ],
-});
+})

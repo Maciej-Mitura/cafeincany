@@ -10,8 +10,10 @@ import Location from '@/components/Location';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
+import { getEvents } from '@/lib/sanity/events';
 
-export default function Home() {
+export default async function Home() {
+  const events = await getEvents();
   return (
     <>
       <StructuredData />
@@ -27,7 +29,7 @@ export default function Home() {
         <Bestsellers />
         <About />
         <Menu />
-        <Events />
+        <Events events={events} />
         <Gallery />
         <Location />
         <Contact />

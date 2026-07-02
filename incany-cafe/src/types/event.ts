@@ -1,4 +1,12 @@
-export type EventCategory = 'DJ Night' | 'Theme Night' | 'Discount';
+export type EventCategory =
+  | 'DJ Night'
+  | 'Theme Night'
+  | 'Discount'
+  | 'Live Muziek'
+  | 'Quiz'
+  | 'Promotie'
+  | 'Sport'
+  | 'Overig';
 
 export type EventStatus = 'upcoming' | 'live' | 'past';
 

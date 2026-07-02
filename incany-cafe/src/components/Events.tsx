@@ -6,14 +6,15 @@ import EventDetailModal from '@/components/events/EventDetailModal';
 import EventTabs, { type EventTab } from '@/components/events/EventTabs';
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
-import eventsData from '@/data/events.json';
 import { getBinnenkortEvents, getVoorbijEvents } from '@/lib/events/helpers';
 import { useCurrentTime } from '@/lib/events/useCurrentTime';
-import type { Event, EventsData } from '@/types/event';
+import type { Event } from '@/types/event';
 
-const typedEventsData: EventsData = eventsData as EventsData;
+interface EventsProps {
+  events: Event[];
+}
 
-export default function Events() {
+export default function Events({ events }: EventsProps) {
   const [activeTab, setActiveTab] = useState<EventTab>('upcoming');
   const [hoveredEventId, setHoveredEventId] = useState<number | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
@@ -23,11 +24,11 @@ export default function Events() {
 
   const currentEvents = useMemo(() => {
     if (activeTab === 'upcoming') {
-      return getBinnenkortEvents(typedEventsData.events, now);
+      return getBinnenkortEvents(events, now);
     }
 
-    return getVoorbijEvents(typedEventsData.events, now);
-  }, [activeTab, now]);
+    return getVoorbijEvents(events, now);
+  }, [activeTab, events, now]);
 
   const handleOpenEvent = useCallback((event: Event, triggerElement: HTMLButtonElement) => {
     returnFocusRef.current = triggerElement;

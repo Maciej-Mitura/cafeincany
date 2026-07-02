@@ -19,6 +19,26 @@ export function getCategoryStyles(category: EventCategory): CategoryStyle {
       bg: 'var(--warning)',
       text: 'var(--background)',
     },
+    'Live Muziek': {
+      bg: 'var(--accent-muted)',
+      text: 'var(--background)',
+    },
+    Quiz: {
+      bg: 'var(--surface-elevated)',
+      text: 'var(--text)',
+    },
+    Promotie: {
+      bg: 'var(--warning)',
+      text: 'var(--background)',
+    },
+    Sport: {
+      bg: 'var(--success)',
+      text: 'var(--background)',
+    },
+    Overig: {
+      bg: 'var(--border)',
+      text: 'var(--text-secondary)',
+    },
   };
 
   return styles[category];
