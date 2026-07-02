@@ -176,16 +176,31 @@ export default function Location() {
                 <iframe src="https://www.google.com/maps?q=Kerkstraat+3,+8890+Moorslede,+Belgium&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Café In Cany Location Map" className="w-full h-full" />
               )}
             </div>
-
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                onClick={handleOpenMaps}
+                variant="primary"
+                size="lg"
+                className="flex-1"
+                icon={
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
+                }
+                iconPosition="left"
+              >
+                Open in Google Maps
+              </Button>
+            </div>
             {/* Consent Controls (show after map is loaded) */}
             {mounted && mapsConsent && (
               <div className="text-center space-y-2">
-                <button onClick={handleOpenMaps} className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer group">
+                {/* <button onClick={handleOpenMaps} className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors cursor-pointer group">
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                   <span>Open in Google Maps</span>
-                </button>
+                </button> */}
                 <div>
                   <button onClick={handleRevokeConsent} className="text-xs text-[var(--muted)] hover:text-[var(--text-secondary)] transition-colors underline">
                     Privacy-instellingen wijzigen
@@ -196,22 +211,6 @@ export default function Location() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              onClick={handleOpenMaps}
-              variant="primary"
-              size="lg"
-              className="flex-1"
-              icon={
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                </svg>
-              }
-              iconPosition="left"
-            >
-              Open in Google Maps
-            </Button>
-          </div>
         </div>
       </div>
     </Section>

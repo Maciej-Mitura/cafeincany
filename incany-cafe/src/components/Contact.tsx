@@ -245,7 +245,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--text)] mb-1">Follow Us</h3>
+                  <h3 className="text-lg font-semibold text-[var(--text)] mb-1">Volg ons</h3>
                   <p className="text-sm text-[var(--text-secondary)]">Blijf op de hoogte van onze laatste nieuws</p>
                 </div>
               </div>
@@ -329,18 +329,6 @@ export default function Contact() {
                   </p>
                 )}
               </div>
-
-              {/* Privacy Notice */}
-              <div className="bg-[var(--surface)]/50 rounded-[var(--radius)] p-4 border border-[var(--border)]">
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  Door dit formulier te versturen, gaat u akkoord met onze verwerking van uw gegevens zoals beschreven in ons{" "}
-                  <Link href="/privacy" className="text-[var(--accent)] hover:text-[var(--accent-hover)] underline">
-                    privacybeleid
-                  </Link>
-                  . We gebruiken uw gegevens alleen om uw vraag te beantwoorden.
-                </p>
-              </div>
-
               {/* Submit Button */}
               <Button
                 type="submit"
@@ -363,6 +351,16 @@ export default function Contact() {
               >
                 {isSubmitting ? "Versturen..." : "Verstuur Bericht"}
               </Button>
+              {/* Privacy Notice */}
+              <div className="bg-[var(--surface)]/50 rounded-[var(--radius)] p-4 border border-[var(--border)]">
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                  Door dit formulier te versturen, gaat u akkoord met onze verwerking van uw gegevens zoals beschreven in ons{" "}
+                  <Link href="/privacy" className="text-[var(--accent)] hover:text-[var(--accent-hover)] underline">
+                    privacybeleid
+                  </Link>
+                  . We gebruiken uw gegevens alleen om uw vraag te beantwoorden.
+                </p>
+              </div>
             </form>
           </div>
         </div>
