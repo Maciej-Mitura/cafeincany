@@ -64,6 +64,7 @@ export default function Menu() {
       <SectionHeader title="Onze Kaart" subtitle="Van Belgische klassiekers tot sterke drank. Alles vers getapt en met liefde geschonken." align="center" level={2} />
 
       <ComingSoonModal active={false} title="Onze kaart wordt vernieuwd" subtitle="De filters en items van onze drankkaart zijn binnenkort beschikbaar." aria-label="Menu coming soon">
+        <div className="menu-section min-w-0">
         {/* Download Menu Button */}
         <div className="text-center mb-8 sm:mb-12">
           <Button
@@ -84,9 +85,9 @@ export default function Menu() {
 
         {/* Category Tabs */}
         <div className="mb-8 sm:mb-12">
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <div className="menu-categories flex flex-wrap justify-center gap-2 sm:gap-3">
             {menuCategories.map((category) => (
-              <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-[var(--radius)] font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer min-h-11 ${activeCategory === category ? "bg-[var(--accent)] text-[var(--background)] shadow-[var(--shadow)]" : "bg-[var(--surface-elevated)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--text)]"}`}>
+              <button key={category} onClick={() => setActiveCategory(category)} className={`menu-categories__button px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-base rounded-[var(--radius)] font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer min-h-10 sm:min-h-11 max-w-full text-center ${activeCategory === category ? "bg-[var(--accent)] text-[var(--background)] shadow-[var(--shadow)]" : "bg-[var(--surface-elevated)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--text)]"}`}>
                 {category}
               </button>
             ))}
@@ -94,24 +95,26 @@ export default function Menu() {
         </div>
 
         {/* Menu Items Grid */}
-        <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
+        <div className="menu-section__grid grid md:grid-cols-2 gap-4 sm:gap-6 min-w-0">
           {displayedItems.map((item, index) => (
             <div
               key={`${item.category}-${index}`}
-              className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-default animate-fade-in"
+              className="menu-item group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-4 sm:p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-default animate-fade-in min-w-0 w-full"
               style={{
                 boxShadow: "var(--shadow)",
                 animationDelay: `${index * 30}ms`,
               }}
             >
               {/* Item Header */}
-              <div className="flex justify-between items-start gap-3 mb-3">
-                <h3 className="text-lg sm:text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1 min-w-0 pr-2">{item.name}</h3>
-                <span className="text-lg sm:text-xl font-semibold text-[var(--accent)] whitespace-nowrap shrink-0">{item.price}</span>
+              <div className="menu-item__header flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-3 mb-2 sm:mb-3 min-w-0">
+                <h3 className="menu-item__name font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 min-w-0 flex-1">{item.name}</h3>
+                <span className="menu-item__price font-semibold text-[var(--accent)] shrink-0">{item.price}</span>
               </div>
 
               {/* Description */}
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-3">{item.description}</p>
+              {item.description ? (
+                <p className="menu-item__description text-[var(--text-secondary)] leading-relaxed mb-3">{item.description}</p>
+              ) : null}
 
               {/* Dietary Tags */}
               {item.dietary && item.dietary.length > 0 && (
@@ -168,6 +171,7 @@ export default function Menu() {
             <span className="text-[var(--accent)] font-medium">Speciale Wensen?</span>
           </p>
           <p className="text-[var(--muted)] text-sm">Vraag gerust aan ons personeel naar je favoriete biertje of speciale dranken.</p>
+        </div>
         </div>
       </ComingSoonModal>
     </Section>
