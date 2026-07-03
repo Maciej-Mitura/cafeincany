@@ -20,14 +20,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-background pt-20 pb-12 overflow-hidden">
+    <section className="relative min-h-[calc(100dvh-4rem)] lg:min-h-screen flex items-center bg-background pt-20 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
-          <div className="space-y-8 lg:space-y-10 animate-fade-in-up">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in-up">
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family:var(--font-heading)] text-[var(--text)] leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family:var(--font-heading)] text-[var(--text)] leading-tight">
                 Uw bruine kroeg in het hart van{" "}
                 <span className="text-[var(--accent)] relative inline-block">
                   Moorslede
@@ -37,7 +37,7 @@ export default function Hero() {
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl lg:text-2xl text-[var(--text-secondary)] max-w-xl leading-relaxed">Gezelligheid, goede pinten en speciale avonden in een authentieke sfeer. Welkom bij Café In Cany.</p>
+              <p className="text-base sm:text-xl lg:text-2xl text-[var(--text-secondary)] max-w-xl leading-relaxed">Gezelligheid, goede pinten en speciale avonden in een authentieke sfeer. Welkom bij Café In Cany.</p>
             </div>
 
             {/* CTAs */}
@@ -72,35 +72,35 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Café Image */}
-          <div className="relative lg:h-[600px] h-[400px] group">
+          <div className="relative h-[280px] sm:h-[400px] lg:h-[600px] group">
             {/* Main image container */}
-            <div className="relative w-full h-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 group-hover:scale-[1.02]" style={{ boxShadow: "var(--shadow-lg)" }}>
+            <div className="relative w-full h-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 motion-safe:group-hover:scale-[1.02]" style={{ boxShadow: "var(--shadow-lg)" }}>
               {/* Café Image */}
               <Image src="/icon.jpg" alt="Café In Cany" fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 50vw" />
 
               {/* Corner light effects - all four corners */}
               {/* Bottom-left corner - light glow */}
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-white/40 via-white/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-tr from-white/40 via-white/20 to-transparent pointer-events-none" />
 
               {/* Bottom-right corner - light glow */}
-              <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-white/40 via-white/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-tl from-white/40 via-white/20 to-transparent pointer-events-none" />
 
               {/* Top-left corner - light glow */}
-              <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-white/40 via-white/20 to-transparent pointer-events-none" />
+              <div className="absolute top-0 left-0 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-br from-white/40 via-white/20 to-transparent pointer-events-none" />
 
               {/* Top-right corner - light glow */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-white/40 via-white/20 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-bl from-white/40 via-white/20 to-transparent pointer-events-none" />
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent)] opacity-20 rounded-full blur-2xl animate-pulse-slow" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--accent-hover)] opacity-20 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+            <div className="absolute -top-4 -right-4 w-16 sm:w-24 h-16 sm:h-24 bg-[var(--accent)] opacity-20 rounded-full blur-2xl animate-pulse-slow" />
+            <div className="absolute -bottom-4 -left-4 w-20 sm:w-32 h-20 sm:h-32 bg-[var(--accent-hover)] opacity-20 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <button onClick={handleScrollToNext} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-full p-2" aria-label="Scroll to next section">
+      <button onClick={handleScrollToNext} className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 motion-safe:animate-bounce cursor-pointer hover:text-[var(--accent)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-full min-w-11 min-h-11 flex items-center justify-center" aria-label="Scroll naar volgende sectie">
         <svg className="w-6 h-6 text-[var(--muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

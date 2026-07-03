@@ -15,14 +15,14 @@ export default function PrivacyPage() {
     <main className="min-h-screen bg-[var(--background)]">
       {/* Header */}
       <div className="bg-[var(--surface)] border-b border-[var(--border)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors mb-6">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Terug naar home
           </Link>
-          <h1 className="text-4xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">Privacybeleid</h1>
+          <h1 className="text-3xl sm:text-4xl font-[family:var(--font-heading)] text-[var(--text)] mb-2">Privacybeleid</h1>
           <p className="text-[var(--text-secondary)]">Laatste update: {lastUpdated}</p>
         </div>
       </div>
@@ -31,14 +31,14 @@ export default function PrivacyPage() {
       <Section background="default" spacing="lg">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Intro */}
-          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow)" }}>
+          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow)" }}>
             <p className="text-[var(--text-secondary)] leading-relaxed">Bij Café In Cany respecteren we je privacy. Deze pagina legt uit welke gegevens we verzamelen via onze website en hoe we deze gebruiken.</p>
           </div>
 
           {/* Verantwoordelijke */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Wie is verantwoordelijk?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-3" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-3" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)]">
                 <strong className="text-[var(--text)]">{cafeInfo.name}</strong>
               </p>
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           {/* Welke gegevens */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Welke gegevens verzamelen we?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-6" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-6" style={{ boxShadow: "var(--shadow)" }}>
               <div>
                 <h3 className="text-lg font-semibold text-[var(--text)] mb-3">Contactformulier</h3>
                 <p className="text-[var(--text-secondary)] mb-3">Als je het contactformulier op onze website gebruikt, verzamelen we:</p>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
           {/* Waarvoor gebruiken we je gegevens */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Waarvoor gebruiken we je gegevens?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)]">We gebruiken je gegevens alleen om:</p>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-4">
                 <li>
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
           {/* Hoe lang bewaren we je gegevens */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Hoe lang bewaren we je gegevens?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)] leading-relaxed">Berichten via het contactformulier bewaren we alleen zolang nodig om je vraag af te handelen. Daarna verwijderen we je gegevens, tenzij we wettelijk verplicht zijn deze langer te bewaren (bijvoorbeeld voor boekhoudkundige redenen).</p>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
           {/* Met wie delen we je gegevens */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Met wie delen we je gegevens?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)]">We verkopen je gegevens nooit. We delen je gegevens alleen met dienstverleners die we nodig hebben om de website te laten werken:</p>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-4">
                 <li>
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
           {/* Jouw rechten */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Wat zijn je rechten?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)]">Je hebt altijd het recht om:</p>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-4">
                 <li>
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
           {/* Cookies */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Gebruiken we cookies?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 space-y-4" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)]">Deze website gebruikt minimaal cookies:</p>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-4">
                 <li>
@@ -180,7 +180,7 @@ export default function PrivacyPage() {
           {/* Vragen */}
           <div>
             <h2 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-4">Vragen over privacy?</h2>
-            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow)" }}>
               <p className="text-[var(--text-secondary)] leading-relaxed">
                 Heb je vragen over hoe we met je gegevens omgaan? Neem gerust contact met ons op via{" "}
                 <a href={`mailto:${cafeInfo.contact.email}`} className="text-[var(--accent)] hover:text-[var(--accent-hover)]">

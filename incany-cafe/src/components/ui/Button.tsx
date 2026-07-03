@@ -22,13 +22,13 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 font-medium rounded-[var(--radius)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center gap-2 font-medium rounded-[var(--radius)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed motion-safe:transition-transform';
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      'bg-accent text-background hover:bg-accent-hover hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+      'bg-accent text-background hover:bg-accent-hover motion-safe:hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
     secondary:
-      'bg-surface-elevated text-text border border-border hover:border-accent-muted hover:text-accent hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+      'bg-surface-elevated text-text border border-border hover:border-accent-muted hover:text-accent motion-safe:hover:scale-105 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
     ghost:
       'bg-transparent text-accent hover:bg-surface-elevated hover:text-accent-hover',
   };

@@ -31,7 +31,7 @@ export default function SectionHeader({
     : 'text-2xl sm:text-3xl md:text-4xl';
 
   return (
-    <div className={`${alignStyles[align]} mb-12 lg:mb-16 ${className}`}>
+    <div className={`${alignStyles[align]} mb-8 sm:mb-12 lg:mb-16 ${className}`}>
       {badge && (
         <span className="inline-block text-sm font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-4 py-1.5 rounded-full border border-[var(--accent)]/30 mb-4">
           {badge}
@@ -41,7 +41,7 @@ export default function SectionHeader({
         {title}
       </HeadingTag>
       {subtitle && (
-        <p className="text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+        <p className={`text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}

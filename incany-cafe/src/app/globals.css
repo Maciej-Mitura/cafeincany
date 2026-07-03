@@ -85,6 +85,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -95,6 +96,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 /* Heading Styles */
@@ -831,6 +833,104 @@ a:hover {
 @media (min-width: 1024px) {
   .gallery-tile {
     width: 18rem;
+  }
+}
+
+/* --- Responsive: below desktop (lg / 1024px) --- */
+
+@media (max-width: 1023px) {
+  .event-card--hovered {
+    transform: none;
+  }
+
+  .events-grid--staggered {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .events-grid__item--raised,
+  .events-grid__item--lowered {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .event-detail-dialog {
+    width: calc(100% - 1rem);
+    max-height: 96dvh;
+  }
+
+  .event-detail-dialog__panel {
+    max-height: 96dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-detail-dialog__body {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .event-detail-dialog__scroll {
+    max-height: none;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-scroll__arrow {
+    display: none;
+  }
+
+  .gallery-scroll__track {
+    scroll-padding-inline: 0.25rem;
+    padding-inline: 0.25rem;
+  }
+
+  .gallery-tile__title {
+    font-size: 1.25rem;
+  }
+
+  .gallery-tile__overlay-content {
+    padding: 1rem;
+  }
+
+  .event-detail-dialog__link {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fade-in-up,
+  .animate-draw-line,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-slow,
+  .animate-slide-up,
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .event-live-indicator__dot {
+    animation: none;
   }
 }
 

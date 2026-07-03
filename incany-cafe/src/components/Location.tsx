@@ -46,11 +46,11 @@ export default function Location() {
     <Section id="location" background="default" spacing="lg">
       <SectionHeader title="Kom Langs" subtitle="Passeer gerust voor een pintje en een warme ontvangst aan de toog" align="center" level={2} />
 
-      <div className="grid lg:grid-cols-2 gap-12">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
         {/* Left Column - Opening Hours */}
         <div className="space-y-8">
           {/* Opening Hours Table */}
-          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow)" }}>
+          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow)" }}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,12 +67,12 @@ export default function Location() {
               {cafeInfo.hours.map((schedule) => {
                 const isToday = todayHours?.day === schedule.day;
                 return (
-                  <div key={schedule.day} onMouseEnter={() => setHoveredDay(schedule.day)} onMouseLeave={() => setHoveredDay(null)} className={`flex justify-between items-center py-3 px-4 rounded-[var(--radius-sm)] transition-all duration-200 ${isToday ? "bg-[var(--accent)]/10 border border-[var(--accent-muted)]" : hoveredDay === schedule.day ? "bg-[var(--surface-elevated)]" : ""}`}>
-                    <span className={`font-medium ${isToday ? "text-[var(--accent)]" : "text-[var(--text)]"}`}>
+                  <div key={schedule.day} onMouseEnter={() => setHoveredDay(schedule.day)} onMouseLeave={() => setHoveredDay(null)} className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 py-3 px-4 rounded-[var(--radius-sm)] transition-all duration-200 ${isToday ? "bg-[var(--accent)]/10 border border-[var(--accent-muted)]" : hoveredDay === schedule.day ? "bg-[var(--surface-elevated)]" : ""}`}>
+                    <span className={`font-medium break-words ${isToday ? "text-[var(--accent)]" : "text-[var(--text)]"}`}>
                       {schedule.day}
-                      {isToday && <span className="ml-2 text-xs bg-[var(--accent)] text-[var(--background)] px-2 py-0.5 rounded-full">Vandaag</span>}
+                      {isToday && <span className="ml-2 text-xs bg-[var(--accent)] text-[var(--background)] px-2 py-0.5 rounded-full whitespace-nowrap">Vandaag</span>}
                     </span>
-                    <span className={isToday ? "text-[var(--text)] font-medium" : "text-[var(--text-secondary)]"}>{schedule.hours}</span>
+                    <span className={`shrink-0 ${isToday ? "text-[var(--text)] font-medium" : "text-[var(--text-secondary)]"}`}>{schedule.hours}</span>
                   </div>
                 );
               })}
@@ -83,7 +83,7 @@ export default function Location() {
         {/* Right Column - Address & Google Maps */}
         <div className="space-y-8">
           {/* Address Block */}
-          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow)" }}>
+          <div className="bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow)" }}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,7 +121,7 @@ export default function Location() {
           {/* Google Maps (Consent-Gated) */}
           <div className="space-y-4">
             {/* Map Container */}
-            <div className="relative h-[500px] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)]" style={{ boxShadow: "var(--shadow-lg)" }}>
+            <div className="relative h-[280px] sm:h-[400px] lg:h-[500px] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)]" style={{ boxShadow: "var(--shadow-lg)" }}>
               {/* Show placeholder before consent or during SSR */}
               {!mounted || !mapsConsent ? (
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-muted)] via-[var(--surface-elevated)] to-[var(--surface)] flex items-center justify-center p-8">

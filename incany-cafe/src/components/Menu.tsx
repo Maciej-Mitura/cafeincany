@@ -65,11 +65,12 @@ export default function Menu() {
 
       <ComingSoonModal active={false} title="Onze kaart wordt vernieuwd" subtitle="De filters en items van onze drankkaart zijn binnenkort beschikbaar." aria-label="Menu coming soon">
         {/* Download Menu Button */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <Button
             onClick={handleDownloadMenu}
             variant="primary"
             size="md"
+            className="w-full sm:w-auto max-w-full whitespace-normal text-center h-auto min-h-11 py-3"
             icon={
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -77,15 +78,15 @@ export default function Menu() {
             }
             iconPosition="left"
           >
-            Download Drankkaart (PDF) <span className="text-xs opacity-75">(Komt binnenkort)</span>
+            Download Drankkaart (PDF)
           </Button>
         </div>
 
         {/* Category Tabs */}
-        <div className="mb-12">
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {menuCategories.map((category) => (
-              <button key={category} onClick={() => setActiveCategory(category)} className={`px-6 py-3 rounded-[var(--radius)] font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer ${activeCategory === category ? "bg-[var(--accent)] text-[var(--background)] shadow-[var(--shadow)]" : "bg-[var(--surface-elevated)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--text)]"}`}>
+              <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-[var(--radius)] font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer min-h-11 ${activeCategory === category ? "bg-[var(--accent)] text-[var(--background)] shadow-[var(--shadow)]" : "bg-[var(--surface-elevated)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--text)]"}`}>
                 {category}
               </button>
             ))}
@@ -93,20 +94,20 @@ export default function Menu() {
         </div>
 
         {/* Menu Items Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
           {displayedItems.map((item, index) => (
             <div
               key={`${item.category}-${index}`}
-              className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-default animate-fade-in"
+              className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-default animate-fade-in"
               style={{
                 boxShadow: "var(--shadow)",
                 animationDelay: `${index * 30}ms`,
               }}
             >
               {/* Item Header */}
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1 pr-4">{item.name}</h3>
-                <span className="text-xl font-semibold text-[var(--accent)] whitespace-nowrap">{item.price}</span>
+              <div className="flex justify-between items-start gap-3 mb-3">
+                <h3 className="text-lg sm:text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 flex-1 min-w-0 pr-2">{item.name}</h3>
+                <span className="text-lg sm:text-xl font-semibold text-[var(--accent)] whitespace-nowrap shrink-0">{item.price}</span>
               </div>
 
               {/* Description */}
@@ -162,7 +163,7 @@ export default function Menu() {
         )}
 
         {/* Additional Info */}
-        <div className="mt-12 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 text-center">
+        <div className="mt-8 sm:mt-12 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 text-center">
           <p className="text-[var(--text-secondary)] mb-2">
             <span className="text-[var(--accent)] font-medium">Speciale Wensen?</span>
           </p>

@@ -59,13 +59,13 @@ const EventCard = forwardRef<HTMLButtonElement, EventCardProps>(function EventCa
             </div>
           )}
 
-          <div className="relative flex flex-col justify-between p-6 sm:p-8 bg-[var(--surface-elevated)]">
+          <div className="relative flex flex-col justify-between p-5 sm:p-8 bg-[var(--surface-elevated)]">
             <div className="flex items-start justify-between gap-4 mb-6">
               <span className="event-card__featured-label">Uitgelicht</span>
               {status === 'live' ? <EventLiveIndicator /> : <EventCategoryBadge category={event.category} />}
             </div>
 
-            <div className="flex gap-5 sm:gap-6 items-start">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
               <EventDateBlock event={event} size="large" />
               <div className="min-w-0 flex-1">
                 <h3 className="text-2xl sm:text-3xl font-heading text-[var(--text)] leading-tight mb-3">

@@ -109,16 +109,15 @@ export default function Bestsellers() {
         <SectionHeader title="Onze Toppers" subtitle="De pintjes en hapjes waar iedereen voor terugkomt" align="center" level={2} />
 
         {/* Menu Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {menuItems.map((item, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredItem(index)}
               onMouseLeave={() => setHoveredItem(null)}
-              className="group relative bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 transition-all duration-300 cursor-default"
+              className="group relative bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 transition-all duration-300 cursor-default motion-safe:hover:-translate-y-1"
               style={{
                 boxShadow: hoveredItem === index ? "var(--shadow-lg)" : "var(--shadow)",
-                transform: hoveredItem === index ? "translateY(-4px)" : "translateY(0)",
                 borderColor: hoveredItem === index ? "var(--accent-muted)" : "var(--border)",
               }}
             >
@@ -131,9 +130,9 @@ export default function Bestsellers() {
 
               {/* Item Header */}
               <div className="mb-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 pr-2">{item.name}</h3>
-                  <span className="text-xl font-semibold text-[var(--accent)] whitespace-nowrap">{item.price}</span>
+                <div className="flex justify-between items-start gap-3 mb-2">
+                  <h3 className="text-lg sm:text-xl font-heading text-[var(--text)] group-hover:text-[var(--accent)] transition-colors duration-300 min-w-0 flex-1">{item.name}</h3>
+                  <span className="text-lg sm:text-xl font-semibold text-[var(--accent)] whitespace-nowrap shrink-0">{item.price}</span>
                 </div>
                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{item.description}</p>
               </div>

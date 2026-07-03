@@ -25,6 +25,14 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     // Handle scroll to add shadow/background change
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -151,9 +159,10 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-[var(--radius-sm)] text-[var(--text)] hover:bg-[var(--surface-elevated)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center justify-center min-w-11 min-h-11 p-2 rounded-[var(--radius-sm)] text-[var(--text)] hover:bg-[var(--surface-elevated)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] transition-colors duration-200 cursor-pointer"
               aria-expanded={isOpen}
-              aria-label="Toggle navigation menu"
+              aria-controls="mobile-nav-panel"
+              aria-label={isOpen ? 'Navigatiemenu sluiten' : 'Navigatiemenu openen'}
             >
               <svg
                 className="h-6 w-6"
@@ -184,11 +193,12 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       <div
+        id="mobile-nav-panel"
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[calc(100dvh-4rem)] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 bg-[var(--surface)]/95 backdrop-blur-md border-t border-[var(--border)]">
+        <div className="px-4 pt-2 pb-4 space-y-1 bg-[var(--surface)]/95 backdrop-blur-md border-t border-[var(--border)] max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain">
           {navLinks.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -197,7 +207,7 @@ export default function Navbar() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className={`block w-full text-left px-4 py-3 rounded-[var(--radius-sm)] text-base font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer ${
+                className={`block w-full text-left px-4 py-3 min-h-11 rounded-[var(--radius-sm)] text-base font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer ${
                   isActive
                     ? 'text-[var(--accent)] bg-[var(--accent)]/10'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--surface-elevated)]'

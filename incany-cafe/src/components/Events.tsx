@@ -172,7 +172,7 @@ export default function Events({ events }: EventsProps) {
         </div>
       )}
 
-      <aside className="events-private-cta mt-12 sm:mt-14 border-l-2 border-[var(--accent-muted)] pl-5 sm:pl-6 py-1">
+      <aside className="events-private-cta mt-10 sm:mt-12 lg:mt-14 border-l-2 border-[var(--accent-muted)] pl-4 sm:pl-6 py-1">
         <p className="text-[var(--text)] font-heading text-lg sm:text-xl mb-2">
           Privé-event organiseren?
         </p>

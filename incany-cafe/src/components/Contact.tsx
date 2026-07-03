@@ -205,11 +205,11 @@ export default function Contact() {
       <Section id="contact" background="surface" spacing="lg">
         <SectionHeader title="Contact" subtitle="Vragen of speciale aanvragen? We horen graag van je." align="center" level={2} />
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Left Column - Contact Info */}
           <div className="space-y-6">
             {/* Phone */}
-            <a href={`tel:${cafeInfo.contact.phoneRaw}`} className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer" style={{ boxShadow: "var(--shadow)" }}>
+            <a href={`tel:${cafeInfo.contact.phoneRaw}`} className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer min-h-11" style={{ boxShadow: "var(--shadow)" }}>
               <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)] group-hover:bg-[var(--accent)]/20 transition-colors">
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -223,7 +223,7 @@ export default function Contact() {
             </a>
 
             {/* Email */}
-            <a href={`mailto:${cafeInfo.contact.email}`} className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer" style={{ boxShadow: "var(--shadow)" }}>
+            <a href={`mailto:${cafeInfo.contact.email}`} className="group flex items-start gap-4 bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6 hover:border-[var(--accent-muted)] transition-all duration-300 cursor-pointer min-h-11" style={{ boxShadow: "var(--shadow)" }}>
               <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)] group-hover:bg-[var(--accent)]/20 transition-colors">
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -237,7 +237,7 @@ export default function Contact() {
             </a>
 
             {/* Social Media */}
-            <div className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6" style={{ boxShadow: "var(--shadow)" }}>
+            <div className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-6" style={{ boxShadow: "var(--shadow)" }}>
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-[var(--radius)] flex items-center justify-center flex-shrink-0 border border-[var(--accent-muted)]">
                   <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -271,7 +271,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8" style={{ boxShadow: "var(--shadow-lg)" }}>
+          <div className="bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8" style={{ boxShadow: "var(--shadow-lg)" }}>
             <h3 className="text-2xl font-[family:var(--font-heading)] text-[var(--text)] mb-6">Stuur ons een bericht</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -367,7 +367,7 @@ export default function Contact() {
 
         {/* Success Toast */}
         {showSuccess && (
-          <div className="fixed bottom-8 right-8 bg-[var(--success)] text-[var(--background)] px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50" style={{ boxShadow: "var(--shadow-lg)" }} role="alert" aria-live="polite">
+          <div className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:left-auto sm:right-8 sm:max-w-md bg-[var(--success)] text-[var(--background)] px-5 sm:px-6 py-4 rounded-[var(--radius-lg)] flex items-start sm:items-center gap-3 animate-slide-up z-50" style={{ boxShadow: "var(--shadow-lg)" }} role="alert" aria-live="polite">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -385,7 +385,7 @@ export default function Contact() {
 
         {/* Error Toast */}
         {showError && (
-          <div className="fixed bottom-8 right-8 bg-[var(--error)] text-[var(--background)] px-6 py-4 rounded-[var(--radius-lg)] flex items-center gap-3 animate-slide-up z-50" style={{ boxShadow: "var(--shadow-lg)" }} role="alert" aria-live="assertive">
+          <div className="fixed bottom-4 left-4 right-4 sm:bottom-8 sm:left-auto sm:right-8 sm:max-w-md bg-[var(--error)] text-[var(--background)] px-5 sm:px-6 py-4 rounded-[var(--radius-lg)] flex items-start sm:items-center gap-3 animate-slide-up z-50" style={{ boxShadow: "var(--shadow-lg)" }} role="alert" aria-live="assertive">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>

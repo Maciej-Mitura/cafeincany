@@ -48,16 +48,15 @@ export default function Highlights() {
       <SectionHeader title="Waarom Café In Cany?" subtitle="Goede pinten, gezelligheid en altijd wat te beleven in ons bruine kroegje" align="center" level={2} />
 
       {/* Highlights Grid */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-5 sm:gap-8">
         {highlights.map((highlight, index) => (
           <div
             key={index}
             onMouseEnter={() => setHoveredCard(index)}
             onMouseLeave={() => setHoveredCard(null)}
-            className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-8 transition-all duration-300 cursor-default"
+            className="group bg-[var(--surface-elevated)] rounded-[var(--radius-lg)] border border-[var(--border)] p-5 sm:p-8 transition-all duration-300 cursor-default motion-safe:hover:-translate-y-2"
             style={{
               boxShadow: hoveredCard === index ? "var(--shadow-lg)" : "var(--shadow)",
-              transform: hoveredCard === index ? "translateY(-8px)" : "translateY(0)",
             }}
           >
             {/* Icon Container */}

@@ -25,7 +25,7 @@ export default function EventTabs({ activeTab, onTabChange }: EventTabsProps) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => onTabChange(tab.id)}
-                className={`event-tabs__trigger relative px-5 sm:px-8 py-3 text-sm sm:text-base font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] cursor-pointer ${
+                className={`event-tabs__trigger relative px-5 sm:px-8 py-3 min-h-11 text-sm sm:text-base font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] cursor-pointer ${
                   isActive
                     ? 'text-[var(--text)]'
                     : 'text-[var(--muted)] hover:text-[var(--text-secondary)]'

@@ -74,7 +74,7 @@ function EventDetailPanel({
             ref={closeButtonRef}
             type="button"
             onClick={onRequestClose}
-            className="event-detail-dialog__close absolute top-4 right-4"
+            className="event-detail-dialog__close absolute top-3 right-3 sm:top-4 sm:right-4 min-h-11"
             aria-label="Sluiten"
           >
             Sluiten
@@ -89,7 +89,7 @@ function EventDetailPanel({
               ref={closeButtonRef}
               type="button"
               onClick={onRequestClose}
-              className="event-detail-dialog__close event-detail-dialog__close--inline"
+              className="event-detail-dialog__close event-detail-dialog__close--inline min-h-11"
             >
               Sluiten
             </button>

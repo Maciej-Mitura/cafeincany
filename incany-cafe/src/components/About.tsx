@@ -28,9 +28,9 @@ export default function About() {
     <Section id="about" background="default" spacing="lg">
       <SectionHeader title="Over Ons" align="center" level={2} />
 
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
         {/* Left Column - Story & Values */}
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {/* Story */}
           <div className="space-y-6">
             <h3 className="text-2xl font-heading text-accent ">Ons Verhaal</h3>
@@ -62,10 +62,9 @@ export default function About() {
           <div
             onMouseEnter={() => setIsHoveringPhoto(true)}
             onMouseLeave={() => setIsHoveringPhoto(false)}
-            className="relative h-[500px] lg:h-[600px] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 cursor-default"
+            className="relative h-[280px] sm:h-[400px] lg:h-[600px] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--border)] transition-all duration-500 cursor-default motion-safe:hover:scale-[1.02]"
             style={{
-              boxShadow: isHoveringPhoto ? "var(--shadow-lg)" : "var(--shadow)",
-              transform: isHoveringPhoto ? "scale(1.02)" : "scale(1)",
+              boxShadow: isHoveringPhoto ? 'var(--shadow-lg)' : 'var(--shadow)',
             }}
           >
             {/* Café Photo - Raw, no effects */}
@@ -76,7 +75,7 @@ export default function About() {
 
       {/* Bottom Call-to-Action */}
       <div className="mt-16 text-center">
-        <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-[var(--surface)] px-8 py-6 rounded-[var(--radius-lg)] border border-[var(--border)]" style={{ boxShadow: "var(--shadow)" }}>
+        <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-[var(--surface)] px-5 sm:px-8 py-5 sm:py-6 rounded-[var(--radius-lg)] border border-[var(--border)] max-w-full" style={{ boxShadow: "var(--shadow)" }}>
           <p className="text-[var(--text-secondary)]">Wil je meer weten over ons café?</p>
           <Button
             onClick={() => {
