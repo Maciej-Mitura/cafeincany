@@ -1,3 +1,15 @@
+export const publishedGalleryImagesQuery = `*[
+  _type == "galleryImage" &&
+  published == true
+] | order(date desc) {
+  _id,
+  title,
+  subtitle,
+  date,
+  image,
+  alt
+}`;
+
 export const publishedEventsQuery = `*[
   _type == "event" &&
   published == true

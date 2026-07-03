@@ -2,7 +2,15 @@ import { createImageUrlBuilder, type SanityImageSource } from '@sanity/image-url
 
 import { getSanityClient } from './client';
 
-export function urlForImage(source: SanityImageSource | null | undefined): string | null {
+type ImageUrlOptions = {
+  width?: number;
+  quality?: number;
+};
+
+export function urlForImage(
+  source: SanityImageSource | null | undefined,
+  options?: ImageUrlOptions,
+): string | null {
   if (!source) {
     return null;
   }
@@ -12,5 +20,8 @@ export function urlForImage(source: SanityImageSource | null | undefined): strin
     return null;
   }
 
-  return createImageUrlBuilder(client).image(source).auto('format').width(1600).quality(85).url();
+  const width = options?.width ?? 1600;
+  const quality = options?.quality ?? 85;
+
+  return createImageUrlBuilder(client).image(source).auto('format').width(width).quality(quality).url();
 }

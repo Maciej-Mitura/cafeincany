@@ -11,9 +11,10 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { getEvents } from '@/lib/sanity/events';
+import { getGalleryItems } from '@/lib/sanity/gallery';
 
 export default async function Home() {
-  const events = await getEvents();
+  const [events, galleryItems] = await Promise.all([getEvents(), getGalleryItems()]);
   return (
     <>
       <StructuredData />
@@ -30,7 +31,7 @@ export default async function Home() {
         <About />
         <Menu />
         <Events events={events} />
-        <Gallery />
+        <Gallery items={galleryItems} />
         <Location />
         <Contact />
       </main>

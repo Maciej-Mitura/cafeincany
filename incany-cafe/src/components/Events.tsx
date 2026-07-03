@@ -10,12 +10,16 @@ import { getBinnenkortEvents, getVoorbijEvents } from '@/lib/events/helpers';
 import { useCurrentTime } from '@/lib/events/useCurrentTime';
 import type { Event } from '@/types/event';
 
+const PAST_EVENTS_INITIAL_COUNT = 6;
+const PAST_EVENTS_LOAD_MORE_COUNT = 6;
+
 interface EventsProps {
   events: Event[];
 }
 
 export default function Events({ events }: EventsProps) {
   const [activeTab, setActiveTab] = useState<EventTab>('upcoming');
+  const [pastVisibleCount, setPastVisibleCount] = useState(PAST_EVENTS_INITIAL_COUNT);
   const [hoveredEventId, setHoveredEventId] = useState<number | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
@@ -30,6 +34,52 @@ export default function Events({ events }: EventsProps) {
     return getVoorbijEvents(events, now);
   }, [activeTab, events, now]);
 
+  const featuredEvent = useMemo(() => {
+    if (activeTab !== 'upcoming') {
+      return null;
+    }
+
+    return currentEvents.find((event) => event.featured) ?? null;
+  }, [activeTab, currentEvents]);
+
+  const gridEvents = useMemo(() => {
+    if (!featuredEvent) {
+      return currentEvents;
+    }
+
+    return currentEvents.filter((event) => event.id !== featuredEvent.id);
+  }, [currentEvents, featuredEvent]);
+
+  const visibleGridEvents = useMemo(() => {
+    if (activeTab !== 'past' || gridEvents.length <= PAST_EVENTS_INITIAL_COUNT) {
+      return gridEvents;
+    }
+
+    return gridEvents.slice(0, pastVisibleCount);
+  }, [activeTab, gridEvents, pastVisibleCount]);
+
+  const remainingPastCount = useMemo(() => {
+    if (activeTab !== 'past') {
+      return 0;
+    }
+
+    return Math.max(0, gridEvents.length - visibleGridEvents.length);
+  }, [activeTab, gridEvents.length, visibleGridEvents.length]);
+
+  const handleTabChange = useCallback((tab: EventTab) => {
+    setActiveTab(tab);
+
+    if (tab === 'past') {
+      setPastVisibleCount(PAST_EVENTS_INITIAL_COUNT);
+    }
+  }, []);
+
+  const handleLoadMorePast = useCallback(() => {
+    setPastVisibleCount((count) =>
+      Math.min(count + PAST_EVENTS_LOAD_MORE_COUNT, gridEvents.length),
+    );
+  }, [gridEvents.length]);
+
   const handleOpenEvent = useCallback((event: Event, triggerElement: HTMLButtonElement) => {
     returnFocusRef.current = triggerElement;
     setSelectedEvent(event);
@@ -40,57 +90,97 @@ export default function Events({ events }: EventsProps) {
   }, []);
 
   return (
-    <Section id="events" background="default" spacing="lg">
+    <Section id="events" background="default" spacing="lg" className="events-section">
       <SectionHeader
+        badge="Programma"
         title="Evenementen"
-        subtitle="Van DJ-avonden tot themafuiven - er is altijd wat te beleven in ons café"
+        subtitle="Van DJ-avonden tot themafuiven — ontdek wat er binnenkort in het café gebeurt."
         align="center"
         level={2}
+        className="events-section__header"
       />
 
-      <EventTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      <EventTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {currentEvents.map((event) => (
+      <div className="events-section__content space-y-6 sm:space-y-8">
+        {featuredEvent && (
           <EventCard
-            key={event.id}
-            event={event}
+            key={featuredEvent.id}
+            event={featuredEvent}
             now={now}
-            isHovered={hoveredEventId === event.id}
-            onMouseEnter={() => setHoveredEventId(event.id)}
+            variant="featured"
+            isHovered={hoveredEventId === featuredEvent.id}
+            onMouseEnter={() => setHoveredEventId(featuredEvent.id)}
             onMouseLeave={() => setHoveredEventId(null)}
             onOpen={handleOpenEvent}
           />
-        ))}
+        )}
+
+        {visibleGridEvents.length > 0 && (
+          <div
+            className={`events-grid grid sm:grid-cols-2 gap-5 sm:gap-6 ${
+              visibleGridEvents.length > 1 ? 'events-grid--staggered' : ''
+            }`}
+          >
+            {visibleGridEvents.map((event, index) => (
+              <div
+                key={event.id}
+                className={`events-grid__item ${
+                  visibleGridEvents.length > 1
+                    ? index % 2 === 0
+                      ? 'events-grid__item--raised'
+                      : 'events-grid__item--lowered'
+                    : ''
+                }`}
+              >
+                <EventCard
+                  event={event}
+                  now={now}
+                  isHovered={hoveredEventId === event.id}
+                  onMouseEnter={() => setHoveredEventId(event.id)}
+                  onMouseLeave={() => setHoveredEventId(null)}
+                  onOpen={handleOpenEvent}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {remainingPastCount > 0 && (
+          <div className="flex justify-center pt-2 sm:pt-4">
+            <button
+              type="button"
+              onClick={handleLoadMorePast}
+              className="events-load-more"
+              aria-label={`Toon ${Math.min(remainingPastCount, PAST_EVENTS_LOAD_MORE_COUNT)} extra voorbije evenementen`}
+            >
+              Toon meer
+              <span className="events-load-more__count" aria-hidden="true">
+                ({Math.min(remainingPastCount, PAST_EVENTS_LOAD_MORE_COUNT)})
+              </span>
+            </button>
+          </div>
+        )}
       </div>
 
       {currentEvents.length === 0 && (
-        <div className="text-center py-12">
-          <div
-            className="w-20 h-20 bg-[var(--surface)] rounded-full flex items-center justify-center mx-auto mb-4"
-            style={{ boxShadow: 'var(--shadow)' }}
-          >
-            <svg className="w-10 h-10 text-[var(--muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <p className="text-[var(--muted)]">
+        <div className="events-empty text-center py-14 sm:py-16 border border-dashed border-[var(--border)]">
+          <p className="text-[var(--muted)] text-sm uppercase tracking-[0.14em] mb-2">Programma</p>
+          <p className="text-lg font-heading text-[var(--text-secondary)]">
             {activeTab === 'upcoming' ? 'Geen evenementen gepland' : 'Geen voorbije evenementen'}
           </p>
         </div>
       )}
 
-      <div
-        className="mt-12 text-center bg-[var(--surface)] rounded-[var(--radius-lg)] border border-[var(--border)] p-6"
-        style={{ boxShadow: 'var(--shadow)' }}
-      >
-        <p className="text-[var(--text-secondary)] mb-2">
-          <span className="text-[var(--accent)] font-medium">Wil je een privé-event organiseren?</span>
+      <aside className="events-private-cta mt-12 sm:mt-14 border-l-2 border-[var(--accent-muted)] pl-5 sm:pl-6 py-1">
+        <p className="text-[var(--text)] font-heading text-lg sm:text-xl mb-2">
+          Privé-event organiseren?
         </p>
-        <p className="text-[var(--muted)] text-sm">
-          Neem contact met ons op voor beschikbaarheid en prijzen. We regelen graag je verjaardag, bedrijfsfeest of andere gelegenheid!
+        <p className="text-[var(--muted)] text-sm sm:text-base leading-relaxed max-w-2xl">
+          Neem contact met ons op voor beschikbaarheid en prijzen. We regelen graag je verjaardag,
+          bedrijfsfeest of andere gelegenheid.
         </p>
-      </div>
+      </aside>
 
       <EventDetailModal
         event={selectedEvent}

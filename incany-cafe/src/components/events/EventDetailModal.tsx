@@ -1,7 +1,9 @@
-import { getCategoryStyles } from '@/lib/events/categoryStyles';
+import EventCategoryBadge from '@/components/events/EventCategoryBadge';
+import EventDateBlock from '@/components/events/EventDateBlock';
+import EventLiveIndicator from '@/components/events/EventLiveIndicator';
 import {
   calculateEventStatus,
-  formatEventDateTimeRange,
+  formatEventTimeRange,
   getEventDescription,
   getEventStatusLabel,
   shouldShowRecap,
@@ -27,14 +29,14 @@ interface EventDetailPanelProps {
   onRequestClose: () => void;
 }
 
-function getStatusBadgeStyle(status: EventStatus): { bg: string; text: string } {
+function getStatusTone(status: EventStatus): string {
   switch (status) {
     case 'upcoming':
-      return { bg: 'var(--accent)', text: 'var(--background)' };
+      return 'text-[var(--accent)]';
     case 'live':
-      return { bg: 'var(--success)', text: 'var(--background)' };
+      return 'text-[var(--accent)]';
     case 'past':
-      return { bg: 'var(--surface-elevated)', text: 'var(--text-secondary)' };
+      return 'text-[var(--muted)]';
   }
 }
 
@@ -48,120 +50,155 @@ function EventDetailPanel({
   onRequestClose,
 }: EventDetailPanelProps) {
   const status = calculateEventStatus(event, now);
-  const categoryStyle = getCategoryStyles(event.category);
-  const statusStyle = getStatusBadgeStyle(status);
+  const statusTone = getStatusTone(status);
   const description = getEventDescription(event);
   const showRecap = shouldShowRecap(event, status);
   const galleryImages = getValidGalleryImages(event.gallery);
   const showCoverImage = isValidImageSource(event.coverImage);
   const showExternalLink = isValidHttpUrl(event.externalEventUrl);
   const showVideoLink = isValidHttpUrl(event.videoUrl);
+  const [heroImage, ...galleryRest] = galleryImages;
 
   return (
     <div className="event-detail-dialog__panel">
-      <div className="flex items-start justify-between gap-4 border-b border-[var(--border)] px-5 py-4 sm:px-6">
-        <div className="flex flex-wrap items-center gap-2 pr-2">
-          {event.featured && (
-            <span className="text-xs font-bold uppercase px-3 py-1 rounded-full bg-[var(--accent)] text-[var(--background)]">
-              Uitgelicht
-            </span>
-          )}
-          <span
-            className="text-xs font-bold uppercase px-3 py-1 rounded-full"
-            style={{ backgroundColor: categoryStyle.bg, color: categoryStyle.text }}
+      {showCoverImage && (
+        <div className="event-detail-dialog__hero relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={event.coverImage!.trim()}
+            alt={event.coverImageAlt?.trim() || event.title}
+            className="w-full h-48 sm:h-64 md:h-72 object-cover"
+          />
+          <div className="event-detail-dialog__hero-scrim" aria-hidden="true" />
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onRequestClose}
+            className="event-detail-dialog__close absolute top-4 right-4"
+            aria-label="Sluiten"
           >
-            {event.category}
-          </span>
-          <span
-            className="text-xs font-bold uppercase px-3 py-1 rounded-full border border-[var(--border)]"
-            style={{ backgroundColor: statusStyle.bg, color: statusStyle.text }}
-          >
-            {getEventStatusLabel(status)}
-          </span>
+            Sluiten
+          </button>
         </div>
+      )}
 
-        <button
-          ref={closeButtonRef}
-          type="button"
-          onClick={onRequestClose}
-          className="shrink-0 rounded-[var(--radius)] px-4 py-2 text-sm font-medium text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent-muted)] hover:text-[var(--text)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] cursor-pointer"
-        >
-          Sluiten
-        </button>
-      </div>
-
-      <div className="max-h-[calc(90dvh-5rem)] overflow-y-auto px-5 py-5 sm:px-6 sm:py-6">
-        <h2 id={titleId} className="text-2xl sm:text-3xl font-heading text-[var(--text)] mb-3">
-          {event.title}
-        </h2>
-
-        <p className="text-sm text-[var(--text-secondary)] mb-5">{formatEventDateTimeRange(event)}</p>
-
-        {showCoverImage && (
-          <div className="mb-5 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={event.coverImage!.trim()}
-              alt={event.coverImageAlt?.trim() || event.title}
-              className="w-full max-h-80 object-cover"
-            />
+      <div className="event-detail-dialog__body">
+        {!showCoverImage && (
+          <div className="flex items-start justify-end px-5 pt-5 sm:px-7 sm:pt-6">
+            <button
+              ref={closeButtonRef}
+              type="button"
+              onClick={onRequestClose}
+              className="event-detail-dialog__close event-detail-dialog__close--inline"
+            >
+              Sluiten
+            </button>
           </div>
         )}
 
-        <div id={descriptionId} className="text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
-          {description}
-        </div>
+        <header className="px-5 sm:px-7 pt-5 sm:pt-6 pb-5 border-b border-[var(--border)]">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {event.featured && <span className="event-card__featured-label">Uitgelicht</span>}
+            <EventCategoryBadge category={event.category} />
+            {status === 'live' ? (
+              <EventLiveIndicator />
+            ) : (
+              <span className={`text-[0.65rem] uppercase tracking-[0.14em] font-semibold ${statusTone}`}>
+                {getEventStatusLabel(status)}
+              </span>
+            )}
+          </div>
 
-        {showRecap && (
-          <section className="mt-6 pt-6 border-t border-[var(--border)]" aria-labelledby={recapId}>
-            <h3 id={recapId} className="text-lg font-heading text-[var(--text)] mb-3">
-              Terugblik
-            </h3>
-            <p className="text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">{event.recap}</p>
-          </section>
-        )}
-
-        {galleryImages.length > 0 && (
-          <section className="mt-6" aria-label="Fotogalerij">
-            <h3 className="text-lg font-heading text-[var(--text)] mb-3">Fotogalerij</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {galleryImages.map((image) => (
-                <div
-                  key={image.url}
-                  className="overflow-hidden rounded-[var(--radius)] border border-[var(--border)]"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={image.url.trim()} alt={image.alt.trim()} className="w-full h-32 sm:h-36 object-cover" />
-                </div>
-              ))}
+          <div className="flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6">
+            <EventDateBlock event={event} size="large" />
+            <div className="min-w-0 flex-1">
+              <h2 id={titleId} className="text-2xl sm:text-3xl font-heading text-[var(--text)] leading-tight mb-2">
+                {event.title}
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--accent)] font-medium tracking-wide">
+                {formatEventTimeRange(event)}
+              </p>
             </div>
-          </section>
-        )}
-
-        {(showExternalLink || showVideoLink) && (
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            {showExternalLink && (
-              <a
-                href={event.externalEventUrl!.trim()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2 rounded-[var(--radius)] text-sm font-medium bg-[var(--accent)] text-[var(--background)] hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-              >
-                Naar evenementpagina
-              </a>
-            )}
-            {showVideoLink && (
-              <a
-                href={event.videoUrl!.trim()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2 rounded-[var(--radius)] text-sm font-medium border border-[var(--border)] text-[var(--text)] hover:border-[var(--accent-muted)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-              >
-                Bekijk video
-              </a>
-            )}
           </div>
-        )}
+        </header>
+
+        <div className="event-detail-dialog__scroll max-h-[calc(90dvh-12rem)] overflow-y-auto px-5 sm:px-7 py-6 sm:py-7">
+          <div
+            id={descriptionId}
+            className="event-detail-dialog__description text-[var(--text-secondary)] leading-relaxed whitespace-pre-line"
+          >
+            {description}
+          </div>
+
+          {showRecap && (
+            <section className="event-detail-dialog__recap mt-8" aria-labelledby={recapId}>
+              <h3 id={recapId} className="text-lg font-heading text-[var(--text)] mb-3">
+                Terugblik
+              </h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">{event.recap}</p>
+            </section>
+          )}
+
+          {galleryImages.length > 0 && (
+            <section className="mt-8" aria-label="Fotogalerij">
+              <h3 className="text-lg font-heading text-[var(--text)] mb-4">Fotogalerij</h3>
+              <div className="event-detail-dialog__gallery">
+                {heroImage && (
+                  <div className="event-detail-dialog__gallery-hero overflow-hidden border border-[var(--border)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={heroImage.url.trim()}
+                      alt={heroImage.alt.trim()}
+                      className="w-full h-48 sm:h-56 object-cover"
+                    />
+                  </div>
+                )}
+                {galleryRest.length > 0 && (
+                  <div className="event-detail-dialog__gallery-grid">
+                    {galleryRest.map((image) => (
+                      <div
+                        key={image.url}
+                        className="overflow-hidden border border-[var(--border)]"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={image.url.trim()}
+                          alt={image.alt.trim()}
+                          className="w-full h-28 sm:h-32 object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+
+          {(showExternalLink || showVideoLink) && (
+            <div className="mt-8 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row gap-3">
+              {showExternalLink && (
+                <a
+                  href={event.externalEventUrl!.trim()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="event-detail-dialog__link event-detail-dialog__link--primary"
+                >
+                  Naar evenementpagina
+                </a>
+              )}
+              {showVideoLink && (
+                <a
+                  href={event.videoUrl!.trim()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="event-detail-dialog__link event-detail-dialog__link--secondary"
+                >
+                  Bekijk video
+                </a>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
