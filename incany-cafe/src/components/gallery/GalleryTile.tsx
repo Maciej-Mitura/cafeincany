@@ -44,8 +44,9 @@ export default function GalleryTile({
           <img
             src={item.imageUrl!}
             alt={item.alt}
-            loading={index < 4 ? 'eager' : 'lazy'}
+            loading="lazy"
             decoding="async"
+            fetchPriority="low"
             className="gallery-tile__image"
           />
         ) : (
@@ -56,8 +57,7 @@ export default function GalleryTile({
         )}
 
         <div
-          className="gallery-tile__overlay"
-          style={{ opacity: isActive ? 1 : 0 }}
+          className={`gallery-tile__overlay${isActive ? ' gallery-tile__overlay--visible' : ''}`}
           aria-hidden={!isActive}
         >
           <div className="gallery-tile__overlay-content">
